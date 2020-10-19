@@ -1,0 +1,15 @@
+footer {
+  clear: both;
+  background-color: #282e34;
+  color: #ddd;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ddd;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: #666;
+  padding: 3px;
+}
