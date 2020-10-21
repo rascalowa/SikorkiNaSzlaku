@@ -20,21 +20,24 @@ html {
   /* For parallax effect */
   background-attachment: fixed;
   height: 95vh;
+  width: 100%;
 }
 
-.h1 {
+.home1 {
   background-image: url("../../assets/Home/Home1.JPG");
 }
 
-.hm {
+.homemonika {
   background-image: url("../../assets/Home/HomeMonika.JPG");
+  height: 60vh;
 }
 
-.hg {
+.homegreg {
   background-image: url("../../assets/Home/HomeGreg.jpg");
+  height: 60vh;
 }
 
-.h2 {
+.home2 {
   background-image: url("../../assets/Home/Home2.jpg");
 }
 
@@ -48,7 +51,7 @@ html {
 
 .ptext {
   position: absolute;
-  top: 55%;
+  top: 50%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -56,9 +59,38 @@ html {
   letter-spacing: 8px;
 }
 
-.border {
+.box {
   background-color: #282e34;
   color: #fff;
   padding: 20px;
   opacity: 0.7;
+  border: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .homegreg {
+    background-position: 0px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .homegreg {
+    background-position: -100px;
+  }
+
+  .ptext {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
+  .section {
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .ptext {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
 }
