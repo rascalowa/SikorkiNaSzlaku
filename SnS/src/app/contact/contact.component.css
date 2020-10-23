@@ -1,0 +1,116 @@
+/* FOR NOW ALL CSS COPIED LATER REMOVE THIS SECTION (css in app.component.css) */
+
+body,
+html {
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: #666;
+}
+
+.bgimg {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* For parallax effect */
+  background-attachment: fixed;
+  height: 95vh;
+  width: 100%;
+}
+
+.contact1 {
+  background-image: url("../../assets/Contact/Contact1.JPG");
+}
+
+/* .contact2 {
+  background-image: url("../../assets/Contact/Contact2.JPG");
+} */
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+  background-color: #282e34;
+  color: #ddd;
+  align-items: center;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+}
+
+.box {
+  background-color: #282e34;
+  color: #fff;
+  padding: 20px;
+  opacity: 0.7;
+  border: 0;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+label {
+  margin-top: 15px;
+}
+
+input.ng-pristine.ng-invalid.ng-touched {
+  border: solid rgb(209, 150, 132) 4px;
+}
+
+.form-text {
+  color: rgb(209, 150, 132);
+}
+
+.form-text.low {
+  color: rgb(150, 149, 149);
+}
+
+textarea.ng-pristine.ng-invalid.ng-touched {
+  border: solid rgb(209, 150, 132) 4px;
+}
+
+textarea.ng-invalid.ng-dirty {
+  border: solid rgb(150, 149, 149) 4px;
+}
+
+@media screen and (max-width: 550px) {
+  .ptext {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
+  .section {
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .ptext {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .ptext {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .section {
+    padding: 10px 20px;
+  }
+}
