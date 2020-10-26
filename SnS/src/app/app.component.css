@@ -1,16 +1,69 @@
+.bgimg {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* For parallax effect */
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+  background-color: #282e34;
+  color: #ddd;
+  align-items: center;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+}
+
+.box {
+  background-color: #282e34;
+  color: #fff;
+  padding: 20px;
+  opacity: 0.7;
+  border: 0;
+}
+
 footer {
   clear: both;
   background-color: #282e34;
   color: rgb(136, 135, 135);
   text-align: center;
   font-size: small;
+  padding: 5px 0;
 }
 
 footer a {
   text-decoration: none;
   color: rgb(212, 212, 212);
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: rgb(49, 51, 59);
   padding: 2px;
+}
+
+@media screen and (max-width: 550px) {
+  .ptext {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
+  .section {
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .ptext {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
 }

@@ -3,12 +3,25 @@
   margin: 0 30px 0 0;
 }
 
-.img-responsive {
+.navbar-toggler {
+  outline: 0;
+  padding: 8px 12px;
+}
+
+.navbar-toggler:hover {
+  color: rgb(141, 196, 187);
+}
+
+.navbar-nav li {
+  padding: 5px;
+}
+
+.img-fluid {
   height: 80px;
 }
 
 @media screen and (max-width: 680px) {
-  .img-responsive {
+  .img-fluid {
     height: 60px;
   }
 }
