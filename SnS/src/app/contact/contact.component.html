@@ -8,7 +8,7 @@
 </div>
 <!--Text-->
 <section class="section section-dark">
-  <div class="container">
+  <div class="container lgscreen">
     <h5>Feel free to ask!</h5>
       <form class='align-left' action="" id='contact-form' (ngSubmit)='onSubmit(f)' #f='ngForm'>
         <label for="name">Your name</label>
@@ -27,9 +27,11 @@
     </form>
     <button type='submit' form='contact-form' class='btn btn-dark center' [disabled]='!f.valid'>Submit</button>
   </div>
+
+
 </section>
  <!--Photo-->
- <div class="bgimg contact1">
+ <div class="bgimg contact2">
   <div class="ptext">
     <span class="box">
       WAIT FOR A REPLY

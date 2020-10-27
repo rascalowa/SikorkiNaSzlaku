@@ -23,6 +23,7 @@
     <div class="col-md-7">
       <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
     </div>
+<ng-container *ngIf="isScreenSmall$ | async">
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Iguazu, Brazil/Argentina</h5>
@@ -30,6 +31,8 @@
         <button class='btn'>Read more...</button>
       </div>
     </div>
+  </ng-container>
+
   </div>
 </div>
 
