@@ -1,4 +1,4 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,11 +15,9 @@ export class TravelComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    if (this.breakpointObserver.isMatched('(max-width: 600px)')) {
-      console.info('The screen width is less than 600px');
-    }
     this.isScreenSmall$ = this.breakpointObserver
-    .observe([Breakpoints.XSmall])
+    .observe(['(max-width: 768px)'])
+    //matches - boolean
     .pipe(map(({ matches })=> matches ))
   }
 

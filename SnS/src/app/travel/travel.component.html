@@ -7,7 +7,7 @@
   </div>
 </div>
 <!--Text-->
-<section class="section section-dark">
+      <section class="section section-dark">
   <div class="container">
     <p>
       We had a plan to travel around the world but it turned out to be
@@ -16,33 +16,38 @@
   </div>
 </section>
 
+  <div [ngSwitch]="(isScreenSmall$ | async)">
+
 <!-- CARDS -->
 <!-- IGUAZU -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <!-- Photo first on bigger screens -->
+    <div class="col-md-7" *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
     </div>
-<ng-container *ngIf="isScreenSmall$ | async">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Iguazu, Brazil/Argentina</h5>
-        <p class="card-text">On the border between Agrentina and Brazil you can find Iguazu. Most amazing place we have seen so far, Monika's childhood dream. Iguazu is a set of 275 minor waterfalls, big mass of water in falling down every second (1700m2). Worth every penny!</p>
-        <button class='btn'>Read more...</button>
+       <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Iguazu, Brazil/Argentina</h5>
+          <p class="card-text">One of the biggest waterfall in the world. </p>
+          <button class='btn'>Read more...</button>
+        </div>
       </div>
+      <!-- Photo after text on smaller screens -->
+    <div class="col-md-7" *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
     </div>
-  </ng-container>
-
   </div>
 </div>
+<!-- <p>On the border between Agrentina and Brazil you can find Iguazu. Most amazing place we have seen so far, Monika's childhood dream. Iguazu is a set of 275 minor waterfalls, on the highest point water is coming down from 82 meters. Whole waterfall is 2 kilometers wide! Just imagine big mass of water (1700m³) falling down every second... This view is worth every penny!</p> -->
 
 <!-- PHILIPPINES -->
 <div class="card text-center">
   <div class="row no-gutters">
     <div class="col-md-5 align-self-center">
       <div class="card-body">
-        <h5 class="card-title">Philippines</h5>
-        <p class="card-text"> Wonderful beaches in Philippines. Boracay's Whitebeach with it's white sand and clear crystal water is great before/after highseason. And an amazing underwater world! Siargao island offers great waves for surfing and beautiful landscapes both on the coast and inland. Parties with live music, wonderful atmosphere are just an addition. Filipinos are very friendly and always willing to help. The best destination for longer holidays. Worth every penny!</p>
+        <h5 class="card-title">The Philippines</h5>
+        <p class="card-text">Boracay for beaches, Siargao for good vibes. Definitely not for food!</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -51,22 +56,27 @@
     </div>
   </div>
 </div>
+<!-- <p>Boracay's Whitebeach with it's white sand and clear crystal water is annually in the top ten of the most beautiful beaches in the world. Worth to visit especially before/after highseason. Siargao island offers great waves for surfing and wonderful landscapes both on the coast and inland. Parties with live music, wonderful atmosphere are just an addition. And an amazing underwater world! Filipinos are very friendly and always willing to help. The Philippines is best destination for longer holidays. </p> -->
 
 <!-- COSTARICA -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <div class="col-md-7" *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
     </div>
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Costarica</h5>
-        <p class="card-text"> Wild fauna and flora in CostaRica. Monkeys jumping above your head, huge sea turtles in the water and hunting pelicans are just small part of costarican wildlife. Deeper in the jungle you can find way more, but it is not always good idea to look for more.</p>
+        <p class="card-text"> There is no better destination for wild life lovers.</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
+    <div class="col-md-7" *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
+    </div>
   </div>
 </div>
+<!-- <p> Monkeys jumping above your head, huge sea turtles in the water and hunting pelicans are just small part of costarican wildlife. Rainforest gives home for many species. Deeper in the jungle you can find even more, but it is not always good idea to look for more.</p> -->
 
 <!-- PERU -->
 <div class="card text-center">
@@ -74,7 +84,7 @@
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Peru</h5>
-        <p class="card-text"> Canyon Colca in Peru. One of the deepest canyons in the world (3270m - twice as deep as Grand Canyon in the USA). Huge space between steep sides is a great place for biggest flying birds in the world. Condors weight up to 15 kg and their wingspan could be even 320cm! Just imagine these enormous animals flying few meters above your head!</p>
+        <p class="card-text">Huarascan National Park? Canyon Colca? Or Machu Picchu?</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -83,11 +93,14 @@
     </div>
   </div>
 </div>
+<!-- <p>Canyon Colca is one of the deepest canyons in the world (3270m - twice as deep as Grand Canyon in the USA). Huge space between steep sides is a great place for biggest flying birds in the world. Condors weight up to 15 kg and their wingspan could be even 320cm! Just imagine these enormous animals flying few meters above your head! <br>
+  Huarascan National Park in Cordiliera Blanca offers amazing views! Huarascan, the highest peruvian mountain (6768m) with huge, beautiful valley underneath. It comes out of the clouds just for few seconds before they come to cover it's summit again. <br>
+Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates at 4 o'clock in the morning, amount of people walking on the old buildings, trained llamas forced to stay laying for the photos... Not our thing.</p> -->
 
 <!-- BOLIVIA -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <div class="col-md-7"  *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
     </div>
     <div class="col-md-5 align-self-center">
@@ -99,6 +112,9 @@
           world's biggest mirror. Unforgettable view...</p>
         <button class='btn'>Read more...</button>
       </div>
+    </div>
+    <div class="col-md-7"  *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
     </div>
   </div>
 </div>
@@ -122,7 +138,7 @@
 <!-- ECUADOR -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <div class="col-md-7"  *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
     </div>
     <div class="col-md-5 align-self-center">
@@ -131,6 +147,9 @@
         <p class="card-text"></p>
         <button class='btn'>Read more...</button>
       </div>
+    </div>
+    <div class="col-md-7"  *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
     </div>
   </div>
 </div>
@@ -158,7 +177,7 @@
 <!-- GREECE -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <div class="col-md-7"  *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Greece/Greece1.jpg">
     </div>
     <div class="col-md-5 align-self-center">
@@ -167,6 +186,9 @@
         <p class="card-text">If you want to kitesurf there is no better place than Greece.</p>
         <button class='btn'>Read more...</button>
       </div>
+    </div>
+    <div class="col-md-7"  *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Greece/Greece1.jpg">
     </div>
   </div>
 </div>
@@ -190,7 +212,7 @@
 <!-- NICARAGUA -->
 <div class="card text-center">
   <div class="row no-gutters">
-    <div class="col-md-7">
+    <div class="col-md-7"  *ngSwitchCase="false">
       <img class="img-fluid" src="../../assets/Travel/Expand/Nica/Nica1.jpg">
     </div>
     <div class="col-md-5 align-self-center">
@@ -200,25 +222,9 @@
         <button class='btn'>Read more...</button>
       </div>
     </div>
+    <div class="col-md-7"  *ngSwitchCase="true">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Nica/Nica1.jpg">
+    </div>
   </div>
 </div>
-
-
-<!--Text-->
-<!-- <section class="section section-dark">
-  <div class="container">
-    <p>
-      We had a plan to travel around the world but it turned out to be
-      exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay afloat. Below we are presenting best places we have already visited. But you need to be careful: traveling is very addictive!
-    </p>
-  </div>
-</section> -->
-
-<!--Photo-->
-<!-- <div class="bgimg travel1">
-  <div class="ptext">
-    <span class="box">
-      HIT THE ROAD
-    </span>
-  </div>
-</div> -->
+</div>
