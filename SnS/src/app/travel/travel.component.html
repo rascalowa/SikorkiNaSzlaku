@@ -7,8 +7,8 @@
   </div>
 </div>
 <!--Text-->
-      <section class="section section-dark">
-  <div class="container">
+<section class="section section-dark">
+  <div class="container-fluid">
     <p>
       We had a plan to travel around the world but it turned out to be
       exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay afloat. Below we are presenting best places we have already visited. But you need to be careful: traveling is very addictive!
@@ -16,7 +16,9 @@
   </div>
 </section>
 
-  <div [ngSwitch]="(isScreenSmall$ | async)">
+<!-- DIFFERENT LAYOUT DEPENDS ON SCREEN SIZE -->
+<div [ngSwitch]="(isScreenSmall$ | async)">
+  <!-- class='scroll' -->
 
 <!-- CARDS -->
 <!-- IGUAZU -->
@@ -39,7 +41,7 @@
     </div>
   </div>
 </div>
-<!-- <p>On the border between Agrentina and Brazil you can find Iguazu. Most amazing place we have seen so far, Monika's childhood dream. Iguazu is a set of 275 minor waterfalls, on the highest point water is coming down from 82 meters. Whole waterfall is 2 kilometers wide! Just imagine big mass of water (1700m³) falling down every second... This view is worth every penny!</p> -->
+<!-- <p>On the border between Agrentina and Brazil you can find Iguazu. Most amazing place we have seen so far, Monika's childhood dream. It is a set of 275 minor waterfalls, on the highest point water is coming down from 82 meters. Whole Iguazu waterfall is 2 kilometers wide! Just imagine big mass of water (1700m³) falling down every second... This view is worth every penny!</p> -->
 
 <!-- PHILIPPINES -->
 <div class="card text-center">
@@ -47,7 +49,7 @@
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">The Philippines</h5>
-        <p class="card-text">Boracay for beaches, Siargao for good vibes. Definitely not for food!</p>
+        <p class="card-text">Beaches of Boracay, good vibes of Siargao.</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -106,10 +108,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Bolivia</h5>
-        <p class="card-text">Salar de Uyuni in Bolivia is the world's largest salt flat (over
-          10,000 square kilometers). During dry season we can see hexagonal salt
-          formations on the surface. Following rain Uyuni transforms into the
-          world's biggest mirror. Unforgettable view...</p>
+        <p class="card-text">What is the biggest mirror you have ever seen?</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -118,6 +117,10 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>Salar de Uyuni in Bolivia is the world's largest salt flat (over
+  10,000 square kilometers). During dry season we can see hexagonal salt
+  formations on the surface. After the rain Uyuni transforms into a
+  world's biggest mirror. Unforgettable view...</p> -->
 
 <!-- COLOMBIA -->
 <div class="card text-center">
@@ -125,7 +128,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Colombia</h5>
-        <p class="card-text"> </p>
+        <p class="card-text">Positive vibes, lovely nature and great food!</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -134,6 +137,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>Avocado, groszek, bandeja paisa, valle de cocora, medellin</p> -->
 
 <!-- ECUADOR -->
 <div class="card text-center">
@@ -144,7 +148,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Ecuador</h5>
-        <p class="card-text"></p>
+        <p class="card-text">The point on the earth that's closest to the Moon is not the top of Mount Everest!</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -153,6 +157,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>Chimbarazo, https://matadornetwork.com/trips/point-earth-thats-closest-moon-not-top-mount-everest/, lago Quiltoa, indian clothes, each village different, but the smell... </p> -->
 
 <!-- VIETNAM -->
 <div class="card text-center">
@@ -160,11 +165,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Vietnam</h5>
-        <p class="card-text"> TO REWRITE Whole Wietnam is a beautiful country, but what we found the most
-          interesting was the limestone formations in Ha Long Bay and in Tam Coc
-          province. In Ha Long Bay we can see many islands on the water while
-          Tam Coc has a very similar view but islands are between rice fields.
-          Both of them are great.</p>
+        <p class="card-text">3000km, 2 months, 1 tired motorbike</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -173,6 +174,12 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>
+  Whole Wietnam is a beautiful country, but what we found the most
+  interesting was the limestone formations in Ha Long Bay and in Tam Coc
+  province. In Ha Long Bay we can see many islands on the water while
+  Tam Coc has a very similar view but islands are between rice fields.
+  Both of them are great.</p> -->
 
 <!-- GREECE -->
 <div class="card text-center">
@@ -192,6 +199,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>great food, great wind, great school, do you need something more? Perfect spot for watersport. Thanks to Wind4Fun station we had opportunity to spend few wonderful years there. Our second home! </p> -->
 
 <!-- ALPES -->
 <div class="card text-center">
@@ -199,7 +207,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Alpes</h5>
-        <p class="card-text"> Our best snowboard destination.</p>
+        <p class="card-text">Our best snowboard destination.</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -208,6 +216,9 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     </div>
   </div>
 </div>
+<!-- <p>Switzerland for great accomodation and perfect off piste riding.
+France for snowparks. Italy for the weather. All Alpes for views! With SnowEvents we have visited few great resorts!
+</p> -->
 
 <!-- NICARAGUA -->
 <div class="card text-center">
@@ -218,7 +229,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
     <div class="col-md-5 align-self-center">
       <div class="card-body">
         <h5 class="card-title">Nicaragua</h5>
-        <p class="card-text">Are you looking for surfing destination? Look no more!</p>
+        <p class="card-text">Are you looking for great surfing destination? Look no more!</p>
         <button class='btn'>Read more...</button>
       </div>
     </div>
@@ -228,3 +239,4 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
   </div>
 </div>
 </div>
+<!-- <p>City? Dirt and mess everywhere, Before bus trip dozen of sellers in your bus. Countryside? Empty bumpy roads, mobile vegetable market, chill on the beach and wonderful waves for any level</p> -->

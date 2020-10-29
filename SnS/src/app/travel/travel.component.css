@@ -2,11 +2,27 @@
   background-image: url("../../assets/Travel/Travel.JPG");
 }
 
+/* .scroll {
+  scroll-snap-type: y proximity;
+  overflow: scroll;
+} */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   border: 0;
   background-color: light;
+  /* scroll-snap-align: center; */
 }
 
 .card-text {
   padding: 30px;
+}
+
+.card-body {
+  padding: 40px;
 }
