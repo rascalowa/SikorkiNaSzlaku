@@ -1,0 +1,31 @@
+ <!--Photo-->
+ <div class="bgimg auth1 d-flex justify-content-center">
+  <div class="ptext ptext-auth">
+  <div class="box">
+    <form #authForm='ngForm' (ngSubmit)='onSubmit(authForm)'>
+      <div class="form-group">
+        <label for='email'>Email</label>
+        <input type='email' id='email' name='email' class='form-control' ngModel required email>
+      </div>
+      <div class="form-group">
+        <label for='password'>Password</label>
+        <input type='password' id='password' name='password' class='form-control' ngModel required minlength='6'>
+      </div>
+      <div>
+        <!-- When form is valid, after click Sign Up or Login -->
+        <button class="btn btn-dark" type='submit' [disabled]='!authForm.valid'>
+          {{ isLoginMode ? 'Login' : 'Sign Up'}}
+        </button>
+          |
+        <!-- Click to switch mode SignUp/Login -->
+        <button class="btn btn-dark" (click)="onSwitchMode()" type="button">
+          Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+        </button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+
+
+

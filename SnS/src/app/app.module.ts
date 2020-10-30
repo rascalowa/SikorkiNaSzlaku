@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     HeaderComponent,
     HomeComponent,
     TravelComponent,
-    ContactComponent
+    ContactComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
