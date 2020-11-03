@@ -17,11 +17,11 @@
 }
 
 .img-fluid {
-  height: 80px;
+  height: 65px;
 }
 
 @media screen and (max-width: 680px) {
   .img-fluid {
-    height: 60px;
+    height: 50px;
   }
 }

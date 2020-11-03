@@ -1,0 +1,51 @@
+/* .photos {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 33vw;
+  max-height: auto;
+} */
+
+app-travel-expand {
+  /* modals are hidden by default */
+  display: none;
+}
+
+.expand {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  /* enables scrolling when modal is bigger than the screen */
+  overflow: auto;
+}
+
+.expand-body {
+  padding: 20px;
+  background: #fff;
+  margin: 40px;
+}
+
+.expand-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.75;
+  /* z-index must be between modal and everything else  */
+  z-index: 900;
+}
+
+/* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
+body.expand-open {
+  /* body overflow is hidden -> when modal window is open our main page is not scrollable */
+  overflow: hidden;
+}

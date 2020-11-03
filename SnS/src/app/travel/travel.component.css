@@ -26,3 +26,8 @@
 .card-body {
   padding: 40px;
 }
+
+#expand h1 {
+  margin-top: 65px;
+  height: 100vh;
+}
