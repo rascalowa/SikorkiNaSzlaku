@@ -12,8 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { TravelComponent } from './travel/travel.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthComponent } from './auth/auth.component';
-import { TravelExpandChosenComponent } from './travel/travel-expand/travel-expand-chosen/travel-expand-chosen.component';
 import { TravelExpandModule } from './travel/travel-expand/travel-expand.module';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +22,7 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     HomeComponent,
     TravelComponent,
     ContactComponent,
-    AuthComponent,
-    TravelExpandChosenComponent
+    AuthComponent
   ],
   imports: [
     BrowserModule,

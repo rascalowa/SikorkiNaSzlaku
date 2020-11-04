@@ -32,7 +32,7 @@
         <div class="card-body">
           <h5 class="card-title">Iguazu, Brazil/Argentina</h5>
           <p class="card-text">One of the biggest waterfall in the world. </p>
-          <button class='btn btn-dark' (click)='openModal("expand")'>Read more...</button>
+          <button class='btn btn-dark' (click)="openModal(1)">Read more...</button>
         </div>
       </div>
       <!-- Photo after text on smaller screens -->
@@ -50,7 +50,7 @@
       <div class="card-body">
         <h5 class="card-title">The Philippines</h5>
         <p class="card-text">Beaches of Boracay, good vibes of Siargao.</p>
-        <button class='btn'>Read more...</button>
+        <button  class='btn btn-dark' (click)="openModal(2)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -70,7 +70,7 @@
       <div class="card-body">
         <h5 class="card-title">Costarica</h5>
         <p class="card-text"> There is no better destination for wild life lovers.</p>
-        <button class='btn'>Read more...</button>
+        <button  class='btn btn-dark' (click)="openModal(3)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7" *ngSwitchCase="true">
@@ -87,7 +87,7 @@
       <div class="card-body">
         <h5 class="card-title">Peru</h5>
         <p class="card-text">Huarascan National Park? Canyon Colca? Or Machu Picchu?</p>
-        <button class='btn'>Read more...</button>
+        <button  class='btn btn-dark' (click)="openModal(4)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -241,7 +241,9 @@ France for snowparks. Italy for the weather. All Alpes for views! With SnowEvent
 </div>
 <!-- <p>City? Dirt and mess everywhere, Before bus trip dozen of sellers in your bus. Countryside? Empty bumpy roads, mobile vegetable market, chill on the beach and wonderful waves for any level</p> -->
 
-<app-travel-expand id='expand'>
-  <h1>Place for expand-content!</h1>
-  <button class='btn btn-dark' (click)="closeModal('expand');">Close</button>
+<app-travel-expand id='expand'
+*ngFor="let travelExpand of travelList"
+[travelExpand]='travelExpand'
+>
+<ng-content></ng-content>
 </app-travel-expand>

@@ -44,8 +44,26 @@ app-travel-expand {
   z-index: 900;
 }
 
+#expand h1 {
+  margin-top: 65px;
+  height: 100vh;
+}
+
 /* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
 body.expand-open {
   /* body overflow is hidden -> when modal window is open our main page is not scrollable */
   overflow: hidden;
+}
+
+@media screen and (max-width: 680px) {
+  .expand-body {
+    padding: 10px;
+    background: #fff;
+    margin: 20px;
+  }
+
+  #expand h1 {
+    margin-top: 50px;
+    height: 100vh;
+  }
 }
