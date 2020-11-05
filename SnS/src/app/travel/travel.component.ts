@@ -16,9 +16,6 @@ export class TravelComponent implements OnInit {
   // $ to mark observables
   isScreenSmall$: Observable<boolean>;
   bodyText: string;
-  travelList: TravelExpand[];
-  expandId: number;
-  countrySelected: TravelExpand;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -33,16 +30,12 @@ export class TravelComponent implements OnInit {
     .pipe(map(({ matches })=> matches ))
 
     this.bodyText = 'This text will be updates';
-    this.travelList = this.travelListService.getTravelList();
+    // this.travelExpands = this.travelListService.getTravelList();
   }
 
   openModal(id: number) {
     this.travelExpandService.expandId = id;
-    console.log("from Travel: "+ this.travelExpandService.expandId)
     this.travelExpandService.open('expand');
-    this.countrySelected = this.travelListService.getTravelCountry(id);
-    console.log(this.countrySelected);
   }
-
 }
 

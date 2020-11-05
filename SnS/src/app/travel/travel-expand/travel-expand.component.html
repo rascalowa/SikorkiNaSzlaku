@@ -1,16 +1,16 @@
-<div class="expand">
-  <div class="expand-body">
 
-  {{travelExpand.textContent}}  {{travelExpand.id}}
-      <!-- <ng-content></ng-content> -->
-      <!-- <div *ngIf="expandId === travelExpand.id" >{{ travelExpand.textContent }}
-        <div class='col-xs-12 photos no-gutters'>
-          <img class='col-4' [src]="travelExpand.photoOneContent">
-          <img class='col-4' [src]="travelExpand.photoTwoContent">
-          <img class='col-4' [src]="travelExpand.photoThreeContent">
-        </div>
-      </div> -->
-  <button class='btn btn-dark float-right' (click)="closeModal();">Close</button>
+<div class="expand" *ngFor="let travelExpand of travelExpands; let i = index">
+  <div class="expand-body" *ngIf='i === expandId-1'>
+    <button class='btn btn-dark float-right' (click)="closeModal();">Close</button>
+    {{travelExpand.textContent}}  {{travelExpand.id}} {{i}}
+
+    <div class='col-xs-12 photos no-gutters'>
+      <img class='col-4' [src]="travelExpand.photoOneContent">
+      <img class='col-4' [src]="travelExpand.photoTwoContent">
+      <img class='col-4' [src]="travelExpand.photoThreeContent">
+    </div>
+
+
   </div>
 </div>
 <div class="expand-background"></div>

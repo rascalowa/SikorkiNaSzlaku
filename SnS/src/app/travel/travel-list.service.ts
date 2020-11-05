@@ -1,8 +1,10 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
+import { TravelExpandService } from './travel-expand/travel-expand.service';
 import { Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
 export class TravelListService {
+  // expandCountryId: number;
 
   private travelExpands: TravelExpand[] = [
     new TravelExpand (
@@ -94,12 +96,17 @@ export class TravelListService {
     )
   ]
 
+  constructor(private travelExpandService: TravelExpandService){}
+
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
   getTravelList() {
     return this.travelExpands.slice();
   }
 
-  getTravelCountry(index: number){
-    return this.travelExpands[index];
-  }
+  // getTravelCountry(i: number){
+  //   // this.expandCountryId = index;
+  //   // this.travelExpandService.open('expand');
+  //   return this.travelExpands[i];
+
+  // }
 }

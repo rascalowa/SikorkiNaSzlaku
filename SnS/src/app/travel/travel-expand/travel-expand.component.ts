@@ -15,10 +15,13 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 // undefined initially
-  @Input() travelExpand: TravelExpand;
+  // @Input() travelExpandUHU: TravelExpand;
   expandId: number;
-  @Input() index: number;
+  // @Input() indexUHU: number;
   selectedCountry: TravelExpand;
+  // expandedCountry: TravelExpand[] = [];
+  // DEFINED ARRAY WITH COUNTRIES LIST
+  travelExpands: TravelExpand[];
 
 
 
@@ -47,6 +50,9 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
 
     // add self (this modal instance) to the modal service so it's accessible from controllers
     this.travelExpandService.add(this);
+
+    //COPY OF THE LIST OF ALL COUNTRIES
+    this.travelExpands = this.travelListService.getTravelList()
   }
 
   ngOnDestroy(): void {
@@ -59,10 +65,16 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.element.style.display = 'block';
     document.body.classList.add('expand-open');
     this.expandId = this.travelExpandService.expandId;
-    this.selectedCountry = this.travelListService.getTravelCountry(this.expandId)
-    console.log(this.selectedCountry);
+    //WORKD FINE BUT FOR WHAT
+    // this.selectedCountry = this.travelListService.getTravelCountry(this.expandId)
+    // this.expandedCountry.push(this.travelExpandUHU);
+    console.log(this.expandId); // WORKS FINE
+    // console.log(this.selectedCountry);
+    // console.log(this.travelListService.expandCountryId);
+        ///////////////////////////////////
+
   }
-  //use list service.get
+
 
   // close modal
   close(): void {
