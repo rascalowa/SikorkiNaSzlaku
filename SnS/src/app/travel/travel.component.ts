@@ -17,7 +17,8 @@ export class TravelComponent implements OnInit {
   isScreenSmall$: Observable<boolean>;
   bodyText: string;
   travelList: TravelExpand[];
-  // expandId: number;
+  expandId: number;
+  countrySelected: TravelExpand;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -39,30 +40,9 @@ export class TravelComponent implements OnInit {
     this.travelExpandService.expandId = id;
     console.log("from Travel: "+ this.travelExpandService.expandId)
     this.travelExpandService.open('expand');
+    this.countrySelected = this.travelListService.getTravelCountry(id);
+    console.log(this.countrySelected);
   }
+
 }
 
-
-// isScreenSmall$: Observable<boolean>;
-// bodyText: string;
-// expandId: number;
-
-// constructor(
-//   private breakpointObserver: BreakpointObserver,
-//   private travelExpandService: TravelExpandService,
-//   private router: Router
-//   ) { }
-
-// ngOnInit(): void {
-//   this.isScreenSmall$ = this.breakpointObserver
-//   .observe(['(max-width: 768px)'])
-//   //matches - boolean
-//   .pipe(map(({ matches })=> matches ))
-
-//   this.bodyText = 'This text will be updates';
-// }
-
-// openModal(idn: number) {
-//   this.expandId = idn;
-//   this.travelExpandService.open('expand');
-// }

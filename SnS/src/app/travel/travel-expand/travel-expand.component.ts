@@ -17,11 +17,14 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
 // undefined initially
   @Input() travelExpand: TravelExpand;
   expandId: number;
+  @Input() index: number;
+  selectedCountry: TravelExpand;
+
 
 
   constructor(
     private travelExpandService: TravelExpandService,
-    private travelList: TravelListService,
+    private travelListService: TravelListService,
     private el: ElementRef
     ) {this.element = el.nativeElement}
 
@@ -56,10 +59,10 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.element.style.display = 'block';
     document.body.classList.add('expand-open');
     this.expandId = this.travelExpandService.expandId;
-    // STILL 1 HERE
-    console.log('from travelExpand.id: ' + this.travelExpand.id)
-    console.log('from travel-expand: ' + this.expandId)
+    this.selectedCountry = this.travelListService.getTravelCountry(this.expandId)
+    console.log(this.selectedCountry);
   }
+  //use list service.get
 
   // close modal
   close(): void {
@@ -71,53 +74,3 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.travelExpandService.close('expand');
   }
 }
-
-
-// constructor(
-//   private travelExpandService: TravelExpandService,
-//   private el: ElementRef
-//   ) {this.element = el.nativeElement}
-
-// ngOnInit(): void {
-//   // does id exist?
-//   if (!this.id) {
-//     console.error('Modal must have an id.');
-//     return;
-//   }
-
-//   // move element to bottom of page (just before </body>) so it can be displayed above everything else
-//   document.body.appendChild(this.element);
-
-//   // close modal on background click
-//   this.element.addEventListener('click', el => {
-//     if (el.target.className === 'expand') {
-//         this.close();
-//     }
-//   });
-
-//   // add self (this modal instance) to the modal service so it's accessible from controllers
-//   this.travelExpandService.add(this);
-// }
-
-// ngOnDestroy(): void {
-//   this.travelExpandService.remove(this.id);
-//   this.element.remove();
-// }
-
-// // open modal
-// open(): void {
-//   this.element.style.display = 'block';
-//   document.body.classList.add('expand-open');
-// }
-
-// // close modal
-// close(): void {
-//   this.element.style.display = 'none';
-//   document.body.classList.remove('expand-open');
-// }
-
-// closeModal(id: string) {
-//   this.travelExpandService.close(id);
-// }
-
-// }

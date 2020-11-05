@@ -87,7 +87,7 @@
       <div class="card-body">
         <h5 class="card-title">Peru</h5>
         <p class="card-text">Huarascan National Park? Canyon Colca? Or Machu Picchu?</p>
-        <button  class='btn btn-dark' (click)="openModal(4)">Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(4)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -109,7 +109,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Bolivia</h5>
         <p class="card-text">What is the biggest mirror you have ever seen?</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(5)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7"  *ngSwitchCase="true">
@@ -129,7 +129,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Colombia</h5>
         <p class="card-text">Positive vibes, lovely nature and great food!</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(6)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -149,7 +149,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Ecuador</h5>
         <p class="card-text">The point on the earth that's closest to the Moon is not the top of Mount Everest!</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(7)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7"  *ngSwitchCase="true">
@@ -166,7 +166,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Vietnam</h5>
         <p class="card-text">3000km, 2 months, 1 tired motorbike</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(8)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -191,7 +191,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Greece</h5>
         <p class="card-text">If you want to kitesurf there is no better place than Greece.</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(9)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7"  *ngSwitchCase="true">
@@ -208,7 +208,7 @@ Famous Machu Picchu? Views were amazing, but... Huge queue in front of the gates
       <div class="card-body">
         <h5 class="card-title">Alpes</h5>
         <p class="card-text">Our best snowboard destination.</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(10)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7">
@@ -230,7 +230,7 @@ France for snowparks. Italy for the weather. All Alpes for views! With SnowEvent
       <div class="card-body">
         <h5 class="card-title">Nicaragua</h5>
         <p class="card-text">Are you looking for great surfing destination? Look no more!</p>
-        <button class='btn'>Read more...</button>
+        <button class='btn btn-dark' (click)="openModal(11)">Read more...</button>
       </div>
     </div>
     <div class="col-md-7"  *ngSwitchCase="true">
@@ -242,8 +242,9 @@ France for snowparks. Italy for the weather. All Alpes for views! With SnowEvent
 <!-- <p>City? Dirt and mess everywhere, Before bus trip dozen of sellers in your bus. Countryside? Empty bumpy roads, mobile vegetable market, chill on the beach and wonderful waves for any level</p> -->
 
 <app-travel-expand id='expand'
-*ngFor="let travelExpand of travelList"
+*ngFor="let travelExpand of travelList; let i = index"
 [travelExpand]='travelExpand'
+[index]="i"
 >
-<ng-content></ng-content>
+
 </app-travel-expand>
