@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TravelListService } from '../travel-list.service';
 import { TravelExpand } from './travel-expand.model';
 import { TravelExpandService } from './travel-expand.service';
@@ -18,17 +18,17 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   // @Input() travelExpandUHU: TravelExpand;
   expandId: number;
   // @Input() indexUHU: number;
-  selectedCountry: TravelExpand;
+  @Output() selectedCountry: TravelExpand;
   // expandedCountry: TravelExpand[] = [];
   // DEFINED ARRAY WITH COUNTRIES LIST
   travelExpands: TravelExpand[];
 
-
+  // @ViewChild('iframe') iframe: ElementRef
 
   constructor(
     private travelExpandService: TravelExpandService,
     private travelListService: TravelListService,
-    private el: ElementRef
+    private el: ElementRef,
     ) {this.element = el.nativeElement}
 
   ngOnInit(): void {
@@ -55,6 +55,12 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.travelExpands = this.travelListService.getTravelList()
   }
 
+  // ngAfterViewInit(){
+  //   this.selectedCountry= this.travelExpands[this.expandId];
+  //   console.log(this.expandId);
+  //   // this.iframe.nativeElement.setAttribute('src', chosenCountry);
+  // }
+
   ngOnDestroy(): void {
     this.travelExpandService.remove(this.id);
     this.element.remove();
@@ -65,11 +71,11 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.element.style.display = 'block';
     document.body.classList.add('expand-open');
     this.expandId = this.travelExpandService.expandId;
-    //WORKD FINE BUT FOR WHAT
-    // this.selectedCountry = this.travelListService.getTravelCountry(this.expandId)
+    //WORKD FINE BUT FOR WHAT??
+    this.selectedCountry = this.travelExpands[this.expandId-1];
     // this.expandedCountry.push(this.travelExpandUHU);
     console.log(this.expandId); // WORKS FINE
-    // console.log(this.selectedCountry);
+
     // console.log(this.travelListService.expandCountryId);
         ///////////////////////////////////
 

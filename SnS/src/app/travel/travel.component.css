@@ -15,8 +15,13 @@
 
 .card {
   border: 0;
-  background-color: light;
+  background-color: #2f353b;
+  color: #ddd;
   /* scroll-snap-align: center; */
+}
+
+.card h5 {
+  text-transform: uppercase;
 }
 
 .card-text {

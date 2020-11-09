@@ -1,16 +1,29 @@
 
 <div class="expand" *ngFor="let travelExpand of travelExpands; let i = index">
-  <div class="expand-body" *ngIf='i === expandId-1'>
-    <button class='btn btn-dark float-right' (click)="closeModal();">Close</button>
-    {{travelExpand.textContent}}  {{travelExpand.id}} {{i}}
+  <div class="container expand-body" *ngIf='i === expandId-1'>
+    <button class='btn btn-dark float-right' (click)="closeModal() ">X</button>
+    <!-- if it does not work make separate div for container -->
+    <div class="row">
+<!-- embed code -->
+      <div class="col-lg-7">
+        <!-- WORKING WELL -->
+        <!-- src="https://player.vimeo.com/video/282455778" -->
+        <iframe src="https://player.vimeo.com/video/282455778" #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>
 
-    <div class='col-xs-12 photos no-gutters'>
-      <img class='col-4' [src]="travelExpand.photoOneContent">
-      <img class='col-4' [src]="travelExpand.photoTwoContent">
-      <img class='col-4' [src]="travelExpand.photoThreeContent">
+      </div>
+      <div class="col-lg-5">
+
+        <p>{{travelExpand.textContent}}</p>
+      </div>
+      <br><br>
+
+
+    <div class='col-lg-12 photos no-gutters'>
+      <img class='col-lg-4' [src]="travelExpand.photoOneContent">
+      <img class='col-lg-4' [src]="travelExpand.photoTwoContent">
+      <img class='col-lg-4' [src]="travelExpand.photoThreeContent">
     </div>
-
-
+  </div>
   </div>
 </div>
 <div class="expand-background"></div>
