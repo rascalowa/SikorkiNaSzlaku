@@ -1,23 +1,24 @@
 
 <div class="expand" *ngFor="let travelExpand of travelExpands; let i = index">
+
+
   <div class="container expand-body" *ngIf='i === expandId-1'>
     <button class='btn btn-dark float-right' (click)="closeModal() ">X</button>
-    <!-- if it does not work make separate div for container -->
     <div class="row">
-<!-- embed code -->
       <div class="col-lg-7">
+        <iframe appVideoSrc src="" frameborder="0"></iframe>
         <!-- WORKING WELL -->
         <!-- src="https://player.vimeo.com/video/282455778" -->
-        <iframe src="https://player.vimeo.com/video/282455778" #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>
-
+        <!-- <iframe src="https://player.vimeo.com/video/282455778" #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe> -->
+<!-- DIRECTORY WORKING ON PARENT(Travel.cmp.html), HERE NOT -->
+        <!-- <iframe  #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe> -->
       </div>
       <div class="col-lg-5">
-
         <p>{{travelExpand.textContent}}</p>
+        <p class = "page" data = "www.google.com" >OOOOOOOOOOOOO</p>
+
       </div>
       <br><br>
-
-
     <div class='col-lg-12 photos no-gutters'>
       <img class='col-lg-4' [src]="travelExpand.photoOneContent">
       <img class='col-lg-4' [src]="travelExpand.photoTwoContent">
@@ -27,3 +28,4 @@
   </div>
 </div>
 <div class="expand-background"></div>
+

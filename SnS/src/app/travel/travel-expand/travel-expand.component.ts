@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TravelListService } from '../travel-list.service';
 import { TravelExpand } from './travel-expand.model';
 import { TravelExpandService } from './travel-expand.service';
-
 
 @Component({
   selector: 'app-travel-expand',
@@ -14,7 +14,6 @@ import { TravelExpandService } from './travel-expand.service';
 export class TravelExpandComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
-// undefined initially
   // @Input() travelExpandUHU: TravelExpand;
   expandId: number;
   // @Input() indexUHU: number;
@@ -22,14 +21,17 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   // expandedCountry: TravelExpand[] = [];
   // DEFINED ARRAY WITH COUNTRIES LIST
   travelExpands: TravelExpand[];
-
   // @ViewChild('iframe') iframe: ElementRef
 
   constructor(
     private travelExpandService: TravelExpandService,
     private travelListService: TravelListService,
     private el: ElementRef,
-    ) {this.element = el.nativeElement}
+    // private sanitizer: DomSanitizer
+    ) {
+      this.element = el.nativeElement
+      // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.yahoo.com");
+    }
 
   ngOnInit(): void {
     // does id exist?

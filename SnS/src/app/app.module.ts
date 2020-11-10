@@ -1,3 +1,4 @@
+import { TravelExpandComponent } from './travel/travel-expand/travel-expand.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { TravelComponent } from './travel/travel.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthComponent } from './auth/auth.component';
 import { TravelExpandModule } from './travel/travel-expand/travel-expand.module';
+// import { VideoSrcDirective } from './directives/video-src.directive';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     HomeComponent,
     TravelComponent,
     ContactComponent,
-    AuthComponent
+    AuthComponent,
+    // VideoSrcDirective
   ],
   imports: [
     BrowserModule,
