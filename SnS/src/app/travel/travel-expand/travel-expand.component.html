@@ -1,15 +1,12 @@
-<ng-container>
-<div class="expand" *ngFor="let travelExpand of travelExpands; let i = index" >
-  <!-- (clickOutside) NOT WORKING listener added to button read more???-->
-  <!-- (clickOutside)="incrementClickOutsideCount()" -->
-  <div class="container expand-body inner" id='outside' #outside *ngIf='i === expandId-1'>
+<ng-container *ngFor="let travelExpand of travelExpands; let i = index">
+<div class="expand" *ngIf='i === expandId-1' >
+  <div class="container expand-body">
     <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
     <div class="row">
       <div class="col-lg-7">
         <iframe appVideoSrc src="" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
       <div class="col-lg-5">
-        <p>Times clicked outside: {{ clickedOutsideCount }}</p>
         <p>{{travelExpand.textContent}}</p>
       </div>
       <br><br>
