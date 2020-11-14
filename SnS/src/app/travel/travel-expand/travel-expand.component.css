@@ -31,7 +31,7 @@ iframe {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 90;
   /* enables scrolling when modal is bigger than the screen */
   overflow: auto;
 }
@@ -45,7 +45,7 @@ iframe {
   background-color: #000;
   opacity: 0.75;
   /* z-index must be between modal and everything else  */
-  z-index: 900;
+  z-index: 80;
 }
 
 .expand-body {
@@ -54,17 +54,27 @@ iframe {
   margin: 40px;
   margin-top: 80px;
   width: 90%;
+  z-index: 100;
 }
 
 .expand-body button {
-  z-index: 1100;
   margin-top: 5px;
 }
 
 /* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
 body.expand-open {
   /* body overflow is hidden -> when modal window is open our main page is not scrollable */
+  /* if it is not working - view encapsulation none */
   overflow: hidden;
+}
+
+.outer {
+  background: red;
+}
+
+.inner {
+  background: yellow;
+  z-index: 100;
 }
 
 @media screen and (max-width: 680px) {

@@ -1,22 +1,16 @@
-
-<div class="expand" *ngFor="let travelExpand of travelExpands; let i = index">
-
-
-  <div class="container expand-body" *ngIf='i === expandId-1'>
-    <button class='btn btn-dark float-right' (click)="closeModal() ">X</button>
+<ng-container>
+<div class="expand" *ngFor="let travelExpand of travelExpands; let i = index" >
+  <!-- (clickOutside) NOT WORKING listener added to button read more???-->
+  <!-- (clickOutside)="incrementClickOutsideCount()" -->
+  <div class="container expand-body inner" id='outside' #outside *ngIf='i === expandId-1'>
+    <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
     <div class="row">
       <div class="col-lg-7">
-        <iframe appVideoSrc src="" frameborder="0"></iframe>
-        <!-- WORKING WELL -->
-        <!-- src="https://player.vimeo.com/video/282455778" -->
-        <!-- <iframe src="https://player.vimeo.com/video/282455778" #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe> -->
-<!-- DIRECTORY WORKING ON PARENT(Travel.cmp.html), HERE NOT -->
-        <!-- <iframe  #iframe width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe> -->
+        <iframe appVideoSrc src="" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
       <div class="col-lg-5">
+        <p>Times clicked outside: {{ clickedOutsideCount }}</p>
         <p>{{travelExpand.textContent}}</p>
-        <p class = "page" data = "www.google.com" >OOOOOOOOOOOOO</p>
-
       </div>
       <br><br>
     <div class='col-lg-12 photos no-gutters'>
@@ -27,5 +21,10 @@
   </div>
   </div>
 </div>
-<div class="expand-background"></div>
+</ng-container>
+
+
+<!-- </div>
+</div> -->
+<div class="expand-background" #expandBackground></div>
 

@@ -13,15 +13,14 @@
       We had a plan to travel around the world but it turned out to be
       exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay afloat. Below we are presenting best places we have already visited. But you need to be careful: travelling is very addictive!
     </p>
-
   </div>
 </section>
 
 <!-- DIFFERENT LAYOUT DEPENDS ON SCREEN SIZE -->
 <div [ngSwitch]="(isScreenSmall$ | async)">
-  <!-- class='scroll' -->
 
 <!-- CARDS -->
+
 <!-- IGUAZU -->
 <div class="card text-center">
   <div class="row no-gutters">
@@ -226,4 +225,5 @@ France for snowparks. Italy for the weather. All Alpes for views! With SnowEvent
 <!-- <p>City? Dirt and mess everywhere, Before bus trip dozen of sellers in your bus. Countryside? Empty bumpy roads, mobile vegetable market, chill on the beach and wonderful waves for any level</p> -->
 
 <app-travel-expand id='expand'>
+  <!-- <ng-content></ng-content> -->
 </app-travel-expand>

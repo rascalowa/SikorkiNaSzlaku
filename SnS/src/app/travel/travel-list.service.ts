@@ -1,5 +1,4 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
-import { TravelExpandService } from './travel-expand/travel-expand.service';
 import { Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
@@ -94,8 +93,6 @@ export class TravelListService {
       '../../../assets/Travel/Expand/Nica/Nica3.jpg'
     )
   ]
-
-  constructor(private travelExpandService: TravelExpandService){}
 
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
   getTravelList() {

@@ -24,6 +24,7 @@ export class TravelExpandService {
   close(id: string) {
     //close modal with specified id
     const modal = this.modals.find(x => x.id === id);
+    console.log('FROM TRAVEL EXPAND SERVICE');
     modal.close();
   }
 }

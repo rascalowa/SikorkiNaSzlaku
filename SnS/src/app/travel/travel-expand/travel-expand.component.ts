@@ -1,5 +1,15 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+// import { ClickOutsideDirective } from 'src/app/directives/outside.directive';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import { TravelListService } from '../travel-list.service';
 import { TravelExpand } from './travel-expand.model';
 import { TravelExpandService } from './travel-expand.service';
@@ -9,29 +19,34 @@ import { TravelExpandService } from './travel-expand.service';
   templateUrl: './travel-expand.component.html',
   styleUrls: ['./travel-expand.component.css', '../../app.component.css'],
   // none shadow DOM - p37
+  // required to target component tag itself
   encapsulation: ViewEncapsulation.None
 })
 export class TravelExpandComponent implements OnInit, OnDestroy {
   @Input() id: string;
-  private element: any;
-  // @Input() travelExpandUHU: TravelExpand;
+  //element is oitside of the scope of this component
+  @Output() element: any;
+  expandedBody;
+  private chosenElement: any;
   expandId: number;
-  // @Input() indexUHU: number;
   @Output() selectedCountry: TravelExpand;
-  // expandedCountry: TravelExpand[] = [];
-  // DEFINED ARRAY WITH COUNTRIES LIST
   travelExpands: TravelExpand[];
-  // @ViewChild('iframe') iframe: ElementRef
+  // @ViewChild('outside', {static: true}) outside: ElementRef;
+  @ViewChild('expandBackground', {static: true}) expandBackground: ElementRef;
+  clickedOutsideCount = 0;
+
 
   constructor(
+    //public if I want to access it from template
     private travelExpandService: TravelExpandService,
     private travelListService: TravelListService,
+    // public outsideDirective: OutsideDirective,
     private el: ElementRef,
-    // private sanitizer: DomSanitizer
+    private renderer: Renderer2
     ) {
-      this.element = el.nativeElement
-      // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.yahoo.com");
+     this.element = el.nativeElement;
     }
+
 
   ngOnInit(): void {
     // does id exist?
@@ -43,27 +58,21 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     // move element to bottom of page (just before </body>) so it can be displayed above everything else
     document.body.appendChild(this.element);
 
-    // close modal on background click
-    this.element.addEventListener('click', el => {
-      if (el.target.className === 'expand') {
-          this.close();
-      }
-    });
 
     // add self (this modal instance) to the modal service so it's accessible from controllers
     this.travelExpandService.add(this);
 
-    //COPY OF THE LIST OF ALL COUNTRIES
+    // copy of the all countries list
     this.travelExpands = this.travelListService.getTravelList()
   }
 
-  // ngAfterViewInit(){
-  //   this.selectedCountry= this.travelExpands[this.expandId];
-  //   console.log(this.expandId);
-  //   // this.iframe.nativeElement.setAttribute('src', chosenCountry);
-  // }
+  ngAfterViewInit(){
+    // @ViewChild('outside', {static: true}) outside: ElementRef;
+    // this.renderer.listen(this.outside )
+  }
 
   ngOnDestroy(): void {
+    //to avoid memory leaks
     this.travelExpandService.remove(this.id);
     this.element.remove();
   }
@@ -73,24 +82,52 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.element.style.display = 'block';
     document.body.classList.add('expand-open');
     this.expandId = this.travelExpandService.expandId;
-    //WORKD FINE BUT FOR WHAT??
-    this.selectedCountry = this.travelExpands[this.expandId-1];
-    // this.expandedCountry.push(this.travelExpandUHU);
-    console.log(this.expandId); // WORKS FINE
+    this.expandedBody = document.getElementById('outside')
+    console.log(this.expandedBody)
 
-    // console.log(this.travelListService.expandCountryId);
-        ///////////////////////////////////
+    // this.selectedCountry = this.travelExpands[this.expandId-1];
+    // this.renderer.listen(this.expandBackground.nativeElement, 'click', (e:Event)=>{
+    //   // if(e.target === this.elementBody){
+    //   //   console.log(e.target)
+    //   // } else {
+    //   //   console.log('Not this time')
+    //   // }
+    //   console.log(e.target)
+    // })
 
+
+    // console.log(document.getElementById('outside'))
+    // let chosenOne = this.element.children[this.expandId-1]; //div.expand
+    // console.log(chosenOne);
+
+
+
+  // // close modal on background click
+  // this.element.addEventListener('click', el => {
+  //   if (el.target.className === 'expand') {
+  //     this.close();
+  //   }
+  //   });
   }
 
+  // onClickedOutside(e) {
+  //   console.log("CLICKED OUTSIDE");
+  // }
 
-  // close modal
+  // incrementClickOutsideCount() {
+  //   this.clickedOutsideCount += 1;
+  // }
+
+
+  // close modal in theory after background
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('expand-open');
+    console.log('FROM TRAVEL EXPAND CMP - CLOSE')
   }
 
   closeModal() {
     this.travelExpandService.close('expand');
+    console.log('FROM TRAVEL EXPAND CMP - CLOSE MODAL')
   }
 }
