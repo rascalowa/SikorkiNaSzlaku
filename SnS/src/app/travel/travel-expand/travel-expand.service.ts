@@ -13,6 +13,7 @@ export class TravelExpandService {
   remove(id: string) {
     //removes modal from that array
     this.modals = this.modals.filter(x => x.id === id);
+    console.log('remove service')
   }
 
   open(id: string) {
@@ -21,10 +22,12 @@ export class TravelExpandService {
     modal.open();
   }
 
+    // X - 2
   close(id: string) {
     //close modal with specified id
     const modal = this.modals.find(x => x.id === id);
     modal.close();
+    console.log('closes service')
   }
 }
 

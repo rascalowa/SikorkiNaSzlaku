@@ -9,7 +9,7 @@ export class TravelListService {
       1,
       "On the border between Agrentina and Brazil you can find Iguazu. Most amazing place we have seen so far, Monika's childhood dream. It is a set of 275 minor waterfalls, on the highest point water is coming down from 82 meters. Whole Iguazu waterfall is 2 kilometers wide! Just imagine big mass of water (1700m³) falling down every second... This view is worth every penny!",
       'https://player.vimeo.com/video/282455778',
-      '../../../assets/Travel/Expand/Iguazu/Iguazu1.JPG',
+      '../../../assets/Travel/Expand/Iguazu/Iguazu1.jpg',
       '../../../assets/Travel/Expand/Iguazu/Iguazu2.JPG',
       '../../../assets/Travel/Expand/Iguazu/Iguazu3.JPG'),
     new TravelExpand (
@@ -57,8 +57,8 @@ export class TravelListService {
       "Driving through Ecuador was like attending a medieval fashion show: each village has own traditional outfit. Most of these outfits gave off an intense smell of herbs or stable animals, which we did not like so much especially on winding mountain roads... But the Ecuadorian views made up for everything! Did you know the point on the earth that's closest to the Moon? No, it's not Mount Everest. It is the mount Chimborazo in Ecuador! It is not the highest mountain, but it is so close to the equaitor that it's summit is the farthest point from the Earth's center. ",
       'https://player.vimeo.com/video/262304565',
       '../../../assets/Travel/Expand/Ecuador/Ecuador1.jpg',
-      '../../../assets/Travel/Expand/Ecuador/Ecuador2.JPG',
-      '../../../assets/Travel/Expand/Ecuador/Ecuador3.JPG'
+      '../../../assets/Travel/Expand/Ecuador/Ecuador2.jpg',
+      '../../../assets/Travel/Expand/Ecuador/Ecuador3.jpg'
     ),
     new TravelExpand (
       8,
@@ -72,7 +72,7 @@ export class TravelListService {
       9,
       'Travelexpand Greece text',
       'https://player.vimeo.com/video/240065386',
-      '../../../assets/Travel/Expand/Greece/Greece1.JPG',
+      '../../../assets/Travel/Expand/Greece/Greece1.jpg',
       '../../../assets/Travel/Expand/Greece/Greece2.JPG',
       '../../../assets/Travel/Expand/Greece/Greece3.JPG'
     ),

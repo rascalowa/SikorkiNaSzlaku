@@ -5,8 +5,6 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  Renderer2,
-  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import { TravelListService } from '../travel-list.service';
@@ -55,6 +53,8 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     //to avoid memory leaks
     this.travelExpandService.remove(this.id);
+    console.log(this.element)
+    //triggers no reaction?? - it removes app-travel-expand from DOM, routing travel adds it again
     this.element.remove();
     console.log("NG ON DESTROY RUNS")
   }
@@ -73,13 +73,17 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
       });
   }
 
+  // X - 1
   // close modal (after background)
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('expand-open');
+    console.log('close bg cmp')
   }
 
+    // X - 3
   closeModal() {
     this.travelExpandService.close('expand');
+    console.log('close modal cmp')
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +13,6 @@ import { TravelComponent } from './travel/travel.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthComponent } from './auth/auth.component';
 import { TravelExpandModule } from './travel/travel-expand/travel-expand.module';
-// import { OutsideDirective } from './directives/outside.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     TravelComponent,
     ContactComponent,
     AuthComponent,
-    // OutsideDirective,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +29,7 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     NgbModule,
     FormsModule,
     LayoutModule,
+    HttpClientModule,
     TravelExpandModule
   ],
   providers: [],
