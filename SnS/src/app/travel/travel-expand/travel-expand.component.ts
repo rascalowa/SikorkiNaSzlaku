@@ -1,3 +1,4 @@
+import { DBService } from './../db.service';
 import {
   Component,
   ElementRef,
@@ -47,7 +48,7 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.travelExpandService.add(this);
 
     // copy of the all countries list
-    this.travelExpands = this.travelListService.getTravelList()
+    this.travelExpands = this.travelListService.getTravelList();
   }
 
   ngOnDestroy(): void {

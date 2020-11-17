@@ -1,8 +1,9 @@
+import { AuthInterceptorService } from './auth-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,14 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     HttpClientModule,
     TravelExpandModule
   ],
-  providers: [],
+  //when having multiple interceptors, order is important!
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

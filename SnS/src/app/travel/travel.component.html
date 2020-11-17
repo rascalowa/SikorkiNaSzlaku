@@ -13,16 +13,23 @@
       We had a plan to travel around the world but it turned out to be
       exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay afloat. Below we are presenting best places we have already visited. But you need to be careful: travelling is very addictive!
     </p>
-    <button class="btn btn-light" (click)='onSendExpands({title: "First", content: "Request"})'>Send Expands to DataBase</button>
-    <button class="btn btn-light" (click)='onFetchExpands()'>Fetch Expands from DataBase</button>
-    <p *ngIf='fetchedExpands.length <1 && !isFetching'>No data fetched</p>
-   <ul class="list-group" *ngIf='fetchedExpands.length >=1 && !isFetching'>
-     <li class="list-group-item" *ngFor='let fetchedExpand of fetchedExpands'>
+    <!-- <button class="btn btn-dark" (click)='onStoreExpands()'>Store Expands</button> -->
+
+
+    <!--<button class="btn btn-dark" (click)='onDeleteAllExpands()'>Delete all Expands</button>
+    <p *ngIf='fetchedExpandsArray.length <1 && !isFetching'>No data fetched</p>
+   <ul class="list-group" *ngIf='fetchedExpandsArray.length >=1 && !isFetching'>
+     <li class="list-group-item" *ngFor='let fetchedExpand of fetchedExpandsArray'>
       <h3>{{fetchedExpand.title}}</h3>
       <p>{{fetchedExpand.content}}</p>
    </li>
   </ul>
-  <p *ngIf='isFetching'>Loading...</p>
+  <p *ngIf='isFetching && !error'>Loading...</p>
+  <div class="alert alert-danger" *ngIf='error'>
+    <h4>An error occurred!</h4>
+    <p>{{ error }}</p>
+    <button class="btn btn-danger" (click)="onHandleError()">Okay</button>
+  </div> -->
   </div>
 </section>
 
@@ -188,7 +195,7 @@
       </div>
     </div>
     <div class="col-md-7"  *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.jpg">
+      <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.JPG">
     </div>
   </div>
 </div>

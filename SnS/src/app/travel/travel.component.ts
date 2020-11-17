@@ -15,8 +15,9 @@ import { DBService } from './db.service';
 export class TravelComponent implements OnInit {
   // $ to mark observables
   isScreenSmall$: Observable<boolean>;
-  fetchedExpands: ExpandTest[] = [];
+  fetchedExpandsArray: ExpandTest[] = [];
   isFetching = false;
+  error = null;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -30,29 +31,45 @@ export class TravelComponent implements OnInit {
     .observe(['(max-width: 768px)'])
     //matches - boolean
     .pipe(map(({ matches })=> matches ));
-
-    this.fetchExpands();
+    // this.dbService.
+    this.dbService.fetchExpands().subscribe();
 }
 
-  onSendExpands(postData: ExpandTest){
-    this.dbService.storeExpand(postData.title, postData.content);
+  onStoreExpands(){
+    this.dbService.storeExpands();
   }
 
-  onFetchExpands(){
-   this.fetchExpands();
-  }
+
+//   onDeleteAllExpands(){
+//     this.dbService.deleteAllExpands().subscribe(() => {
+//       this.fetchedExpandsArray = [];
+//     })
+//   }
+
+//   onHandleError(){
+//     this.error = null;
+//   }
 
   openModal(id: number) {
     this.travelExpandService.expandId = id;
     this.travelExpandService.open('expand');
   }
 
-  private fetchExpands(){
-    this.isFetching = true;
-    this.dbService.fetchExpands().subscribe(fetchedData => {
-      this.isFetching = false;
-      this.fetchedExpands = fetchedData;
-    })
-  }
+  // private fetchExpands(){
+  //   this.isFetching = true;
+  //   this.dbService.fetchExpands().subscribe(
+  //     //successful case
+  //     fetchedData => {
+  //     this.isFetching = false;
+  //     this.fetchedExpandsArray = fetchedData;
+  //     //second argument is called when the error is thrown
+  //     },
+  //     error => {
+  //     this.isFetching = false;
+  //     this.error = error.message;
+  //     console.log(error);
+  //     }
+  //   );
+  // }
 }
 
