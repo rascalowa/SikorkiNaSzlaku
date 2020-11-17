@@ -8,7 +8,6 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import { TravelListService } from '../travel-list.service';
 import { TravelExpand } from './travel-expand.model';
 import { TravelExpandService } from './travel-expand.service';
 
@@ -28,7 +27,7 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   constructor(
     //public if I want to access it from template
     private travelExpandService: TravelExpandService,
-    private travelListService: TravelListService,
+    private dbService: DBService,
     private el: ElementRef,
     ) {
      this.element = el.nativeElement;
@@ -48,7 +47,7 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.travelExpandService.add(this);
 
     // copy of the all countries list
-    this.travelExpands = this.travelListService.getTravelList();
+    this.travelExpands = this.dbService.getTravelList();
   }
 
   ngOnDestroy(): void {
