@@ -1,4 +1,3 @@
-import { AuthInterceptorService } from './auth-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +13,8 @@ import { TravelComponent } from './travel/travel.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthComponent } from './auth/auth.component';
 import { TravelExpandModule } from './travel/travel-expand/travel-expand.module';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
     TravelComponent,
     ContactComponent,
     AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

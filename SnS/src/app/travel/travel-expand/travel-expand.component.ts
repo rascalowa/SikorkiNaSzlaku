@@ -78,12 +78,10 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('expand-open');
-    console.log('close bg cmp')
   }
 
     // X - 3
   closeModal() {
     this.travelExpandService.close('expand');
-    console.log('close modal cmp')
   }
 }
