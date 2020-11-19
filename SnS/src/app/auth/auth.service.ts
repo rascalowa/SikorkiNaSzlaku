@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { Subject, throwError } from 'rxjs'; //creates new observable wrapping our error
+import { Router } from '@angular/router';
+import { BehaviorSubject, throwError } from 'rxjs'; //creates new observable wrapping our error
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
 
@@ -17,12 +18,11 @@ export interface AuthResponseData {
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  user = new Subject<User>()
-
+  user = new BehaviorSubject<User>(null);
+  private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient) {}
 
-//[api_key] - my firebase api key (projectOverview->projectSettings->webAPIKey)
   signup(email: string, password: string) {
     return this.http.post<AuthResponseData>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAWVM2vtNy4MQdVdUBk5cYI_zQuzXn6tq8',
@@ -66,6 +66,53 @@ export class AuthService {
     );
   }
 
+  //after refresh the page
+  autoLogin() {
+    //in order to work with saved data we need to convert it from string to JSObject
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+      );
+
+    //in user model comparicon of expiration date, token truish only when is valid
+    if(loadedUser.token) {
+      //pass new identicated user
+      this.user.next(loadedUser);
+      //future time from expDate minus current time in miliseconds
+      const expirationDuration = new Date (userData._tokenExpirationDate).getTime() - new Date().getTime();
+      this.autoLogout(expirationDuration);
+    }
+  }
+
+  logout() {
+    this.user.next(null);
+    localStorage.removeItem('userData');
+    //in case of timeout still running after user logout
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+    this.tokenExpirationTimer = null;
+  }
+
+  //expDur- amount of miliseconds
+  autoLogout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
+  }
+
   private handleAuthentication(
     email: string,
     userId: string,
@@ -79,7 +126,10 @@ export class AuthService {
     const user = new User( email, userId, token, expirationDate );
     //emit this user as a currently logged in user
     this.user.next(user);
-    }
+    this.autoLogout(expiresIn * 1000);
+    //data saved in local storage can not be JS object, they need to be string version
+    localStorage.setItem('userData', JSON.stringify(user));
+  }
 
   //signup and login share the same error handling logic
   private handleError(errorRes: HttpErrorResponse) {

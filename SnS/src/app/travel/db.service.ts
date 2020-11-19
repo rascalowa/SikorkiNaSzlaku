@@ -1,15 +1,16 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
 // import { TravelListService } from './travel-list.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { exhaustMap, take, tap } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 //Necessary when my service gets another service injected
 @Injectable({ providedIn: 'root' })
 export class DBService{
   private travelExpands: TravelExpand[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
 
   storeExpands(){
@@ -21,16 +22,18 @@ export class DBService{
   }
 
   fetchExpands(){
+    // take 1 (to get token) and unsubscribe - get one user if there is any when db data are fetched
+    // cannot return from inside subscribe() -> observable chain(2in1): take one from first observable, exhaustMap waits for it to complete, then replace it with second observable. After it you can subscribe in cmp
     return this.http
-      .get<TravelExpand[]>(
-        'https://ng-sns.firebaseio.com/expands.json'
-        )
+    .get<TravelExpand[]>(
+      'https://ng-sns.firebaseio.com/expands.json'
+      )
       .pipe(
         tap(expands => {
           this.setTravelList(expands);
         })
-        )
-      };
+      );
+  };
 
   setTravelList(travelExpands: TravelExpand[]) {
     this.travelExpands = travelExpands;

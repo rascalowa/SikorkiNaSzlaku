@@ -13,8 +13,9 @@ import { TravelComponent } from './travel/travel.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthComponent } from './auth/auth.component';
 import { TravelExpandModule } from './travel/travel-expand/travel-expand.module';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { AuthInterceptorService } from './auth-interceptor.service';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { TravelSubsComponent } from './travel-subs/travel-subs.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     TravelComponent,
     ContactComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    TravelSubsComponent
   ],
   imports: [
     BrowserModule,
