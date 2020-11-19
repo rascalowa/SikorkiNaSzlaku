@@ -1,5 +1,5 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
-// import { TravelListService } from './travel-list.service';
+import { TravelListService } from './travel-list.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { exhaustMap, take, tap } from 'rxjs/operators';
@@ -8,13 +8,16 @@ import { AuthService } from '../auth/auth.service';
 //Necessary when my service gets another service injected
 @Injectable({ providedIn: 'root' })
 export class DBService{
+
   private travelExpands: TravelExpand[] = [];
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
 
+  constructor(private http: HttpClient, private travelListService: TravelListService) {}
+
   storeExpands(){
-   const expands = this.getTravelList();
+   const expands = this.travelListService.getTravelList();
    this.http.put('https://ng-sns.firebaseio.com/expands.json', expands)
     .subscribe(response => {
       console.log(response);
@@ -30,7 +33,7 @@ export class DBService{
       )
       .pipe(
         tap(expands => {
-          this.setTravelList(expands);
+          this.travelListService.setTravelList(expands);
         })
       );
   };
@@ -47,5 +50,4 @@ export class DBService{
   getTravelCountry(index: number){
     return this.travelExpands[index];
   }
-
 }

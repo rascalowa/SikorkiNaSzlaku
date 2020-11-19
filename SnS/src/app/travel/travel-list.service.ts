@@ -1,9 +1,9 @@
-// import { TravelExpand } from './travel-expand/travel-expand.model';
-// import { Injectable } from "@angular/core";
+import { TravelExpand } from './travel-expand/travel-expand.model';
+import { Injectable } from "@angular/core";
 
-// @Injectable({ providedIn: 'root' })
-// export class TravelListService {
-// private travelExpands: TravelExpand[] = [];
+@Injectable({ providedIn: 'root' })
+export class TravelListService {
+private travelExpands: TravelExpand[] = [];
 
   // private travelExpands: TravelExpand[] = [
   //   new TravelExpand (
@@ -95,16 +95,16 @@
   //   )
   // ]
 
-//   setTravelList(travelExpands: TravelExpand[]) {
-//     this.travelExpands = travelExpands;
-//   }
+  setTravelList(travelExpands: TravelExpand[]) {
+    this.travelExpands = travelExpands;
+  }
 
-//   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
-//   getTravelList() {
-//     return this.travelExpands.slice();
-//   }
+  // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
+  getTravelList() {
+    return this.travelExpands.slice();
+  }
 
-//   getTravelCountry(index: number){
-//     return this.travelExpands[index];
-//   }
-// }
+  getTravelCountry(index: number){
+    return this.travelExpands[index];
+  }
+}
