@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TravelExpandService } from './travel-expand';
 import { DBService } from './db.service';
+// import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-travel',
@@ -18,12 +19,14 @@ export class TravelComponent implements OnInit {
   fetchedExpandsArray: ExpandTest[] = [];
   isFetching = false;
   error = null;
+  isAuthenticated: boolean;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private travelExpandService: TravelExpandService,
     private http: HttpClient,
-    private dbService: DBService
+    private dbService: DBService,
+    // private headerCmp: HeaderComponent
     ) { }
 
   ngOnInit(): void {
@@ -33,6 +36,8 @@ export class TravelComponent implements OnInit {
     .pipe(map(({ matches })=> matches ));
     // this.dbService.
     this.dbService.fetchExpands().subscribe();
+    // this.isAuthenticated = this.headerCmp.isAuthenticated;
+    // console.log(this.isAuthenticated);
 }
 
   onStoreExpands(){
