@@ -8,14 +8,10 @@ import { AuthService } from '../auth/auth.service';
 //Necessary when my service gets another service injected
 @Injectable({ providedIn: 'root' })
 export class DBService{
-<<<<<<< HEAD
-=======
+
   private travelExpands: TravelExpand[] = [];
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
->>>>>>> auth
-
-  constructor(private http: HttpClient, private travelListService: TravelListService) {}
+  constructor(private http: HttpClient, private authService: AuthService, private travelListService: TravelListService) {}
 
   storeExpands(){
    const expands = this.travelListService.getTravelList();
@@ -36,10 +32,6 @@ export class DBService{
         tap(expands => {
           this.travelListService.setTravelList(expands);
         })
-<<<<<<< HEAD
-        )
-      };
-=======
       );
   };
 
@@ -55,6 +47,4 @@ export class DBService{
   getTravelCountry(index: number){
     return this.travelExpands[index];
   }
-
->>>>>>> auth
 }
