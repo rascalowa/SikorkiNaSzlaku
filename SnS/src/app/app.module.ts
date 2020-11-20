@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +16,7 @@ import { TravelExpandModule } from './travel/travel-expand/travel-expand.module'
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { TravelSubsComponent } from './travel-subs/travel-subs.component';
+import { ContactService } from './contact/contact.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TravelSubsComponent } from './travel-subs/travel-subs.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     HttpClientModule,
     TravelExpandModule
@@ -43,8 +45,9 @@ import { TravelSubsComponent } from './travel-subs/travel-subs.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    ContactService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
