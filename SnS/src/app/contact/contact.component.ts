@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ContactService } from './contact.service';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +12,9 @@ import { ContactService } from './contact.service';
 })
 export class ContactComponent implements OnInit {
   FormData: FormGroup;
+  faEnvelope = faEnvelope;
+  faPhone = faPhone;
+
 
   constructor(private builder: FormBuilder, private contactService: ContactService) { }
 
@@ -21,20 +26,17 @@ export class ContactComponent implements OnInit {
       Content: new FormControl('', [Validators.required])
     })
   }
-
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-  // }
+  // ADD VALIDATORS!!
 
   onSubmit(FormData) {
     console.log(FormData)
-    this.contactService.SendMessage(FormData)
+    this.contactService.sendMessage(FormData)
     .subscribe(response => {
-    location.href = 'https://mailthis.to/confirm'
-    console.log(response)
+    console.log("Your message was send successfully!")
     }, error => {
     console.warn(error.responseText)
     console.log({ error })
     })
     }
+    // ADD THANK YOU SITE, REDIRECT
 }

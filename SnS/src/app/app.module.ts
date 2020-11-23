@@ -17,6 +17,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { TravelSubsComponent } from './travel-subs/travel-subs.component';
 import { ContactService } from './contact/contact.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ContactService } from './contact/contact.service';
     ReactiveFormsModule,
     LayoutModule,
     HttpClientModule,
-    TravelExpandModule
+    TravelExpandModule,
+    FontAwesomeModule
   ],
   //when having multiple interceptors, order is important!
   providers: [

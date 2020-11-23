@@ -6,12 +6,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContactService {
-  private api =  'https://formspree.io/sikorkinaszlaku@gmail.com'
+  // private api =  'https://formspree.io/sikorkinaszlaku@gmail.com'
 
   constructor(private http: HttpClient) { }
 
-  SendMessage(input: any) {
-    return this.http.post(this.api, input, { responseType: 'text'})
+  sendMessage(input: any) {
+    return this.http.post('https://formspree.io/f/xqkgdzdk',
+      input,
+      { responseType: 'text'})
     .pipe(
       map(
         (response) => {
