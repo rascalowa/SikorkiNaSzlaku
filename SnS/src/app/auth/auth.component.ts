@@ -54,7 +54,5 @@ export class AuthComponent implements OnInit {
         this.isLoading = false;
       }
     )
-
-    form.reset();
   }
 }

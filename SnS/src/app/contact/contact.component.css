@@ -1,10 +1,30 @@
-.contact1 {
+.contactphoto1 {
   background-image: url("../../assets/Contact/Contact1.JPG");
 }
 
-.contact2 {
+.contactphoto2 {
   background-image: url("../../assets/Contact/Contact2.JPG");
   background-position-y: top;
+}
+
+h5 {
+  margin-bottom: 30px;
+}
+
+.contact {
+  align-items: center;
+  margin: 20px 0;
+}
+
+.contact a {
+  text-decoration: none;
+  color: whitesmoke;
+  /* display: block; */
+  /* margin: 10px 20px 20px 0; */
+}
+
+.contact a:hover {
+  text-decoration: underline overline;
 }
 
 .align-left {
@@ -39,14 +59,23 @@ textarea.ng-invalid.ng-dirty {
   border: solid rgb(150, 149, 149) 4px;
 }
 
+.message {
+  padding-top: 20px;
+}
+
+button {
+  padding: 10px;
+  margin: 15px;
+}
+
 @media screen and (max-width: 250px) {
+  .mail a {
+    font-size: 0.8em;
+  }
+
   .ptext {
     font-size: 14px;
     letter-spacing: 1px;
-  }
-
-  .section {
-    padding: 10px 20px;
   }
 }
 
