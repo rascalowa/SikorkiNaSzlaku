@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ContactService } from './contact.service';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { format } from 'path';
 
 @Component({
   selector: 'app-contact',
@@ -17,7 +19,7 @@ export class ContactComponent {
   faEnvelope = faEnvelope;
   faPhone = faPhone;
 
-  constructor(private builder: FormBuilder, private contactService: ContactService) { }
+  constructor(private builder: FormBuilder, private contactService: ContactService, private elementRef: ElementRef) { }
 
   // ngOnInit(): void {
   //   // this.FormData = this.builder.group({
@@ -28,10 +30,10 @@ export class ContactComponent {
   // }
   // ADD VALIDATORS!!
 
-  onSubmit(FormData) {
-    console.log(FormData)
+  onSubmit(FormData: NgForm) {
+    console.log(FormData.value)
     this.isLoading = true;
-    this.contactService.sendMessage(FormData)
+    this.contactService.sendMessage(FormData.value)
     .subscribe(response => {
     console.log("Your message was send successfully!")
     this.messageSended = true;
@@ -40,6 +42,7 @@ export class ContactComponent {
     console.warn(error.responseText)
     console.log({ error })
     })
+    FormData.reset();
   }
 
   onClose() {

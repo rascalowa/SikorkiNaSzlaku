@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { DBService } from './../db.service';
 import {
   Component,
@@ -54,9 +55,9 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     //to avoid memory leaks
     this.travelExpandService.remove(this.id);
-    console.log(this.element)
+    console.log(this.element) // whole app-travel-expand
     //triggers no reaction?? - it removes app-travel-expand from DOM, routing travel adds it again
-    this.element.remove();
+    // this.element.remove();
     console.log("NG ON DESTROY RUNS")
   }
 
@@ -66,23 +67,33 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     document.body.classList.add('expand-open');
     this.expandId = this.travelExpandService.expandId;
 
+    // BG - 1
     // close modal on background click
     this.element.addEventListener('click', el => {
-      if (el.target.className === 'expand') {
-        this.close();
+      console.log("TEC in onInit")
+      if (this.expandId !== 0) {
+        this.travelExpandService.close(el.target.className);
+
+        // console.log(this.element.children[0])//the same as el.target
       }
+
       });
   }
 
-  // X - 1
+  // X - 3
+  // BG - 3
   // close modal (after background)
   close(): void {
+    console.log("TEC close");
     this.element.style.display = 'none';
     document.body.classList.remove('expand-open');
+    this.expandId = 0;
   }
 
-    // X - 3
+  // CALLED ON BUTTON CLOSE - TES close CALLED TWICE??
+    // X - 1
   closeModal() {
+    console.log("closeMODAL")
     this.travelExpandService.close('expand');
   }
 }

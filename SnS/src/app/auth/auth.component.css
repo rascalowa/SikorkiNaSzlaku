@@ -4,3 +4,10 @@
 .form-group {
   padding: 10px;
 }
+
+.box {
+  max-width: 95%;
+}
+
+@media screen and (min-width: 400px) {
+}

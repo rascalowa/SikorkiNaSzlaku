@@ -95,16 +95,20 @@ private travelExpands: TravelExpand[] = [];
   //   )
   // ]
 
+  // WITH FIRST PAGE LOADING
   setTravelList(travelExpands: TravelExpand[]) {
     this.travelExpands = travelExpands;
+    console.log("TLS setList");
   }
 
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
   getTravelList() {
     return this.travelExpands.slice();
+    console.log("TLS getList");
   }
 
   getTravelCountry(index: number){
     return this.travelExpands[index];
+    console.log("TLS getCountry");
   }
 }

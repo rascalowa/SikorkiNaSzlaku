@@ -21,9 +21,11 @@ export class DBService{
     });
   }
 
+  // WITH FIRST PAGE LOADING
   fetchExpands(){
     // take 1 (to get token) and unsubscribe - get one user if there is any when db data are fetched
     // cannot return from inside subscribe() -> observable chain(2in1): take one from first observable, exhaustMap waits for it to complete, then replace it with second observable. After it you can subscribe in cmp
+    console.log("DBS fetchExpands");
     return this.http
     .get<TravelExpand[]>(
       'https://ng-sns.firebaseio.com/expands.json'
@@ -37,14 +39,18 @@ export class DBService{
 
   setTravelList(travelExpands: TravelExpand[]) {
     this.travelExpands = travelExpands;
+    console.log("DBS setList");
   }
 
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
   getTravelList() {
+    console.log("DBS getList");
     return this.travelExpands.slice();
+
   }
 
   getTravelCountry(index: number){
+    console.log("DBS getCountry");
     return this.travelExpands[index];
   }
 }

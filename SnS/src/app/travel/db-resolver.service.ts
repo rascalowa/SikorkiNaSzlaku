@@ -9,6 +9,7 @@ export class DBResolverService implements Resolve<TravelExpand[]> {
 
   constructor(private dbService: DBService) {}
 
+  // WITH FIRST PAGE LOADING
   //will subscribe for me
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.dbService.fetchExpands();

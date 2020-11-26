@@ -1,3 +1,4 @@
+import { TravelExpand } from './travel-expand/travel-expand.model';
 import { ExpandTest } from './expand-test.model';
 import { HttpClient } from '@angular/common/http';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -35,7 +36,10 @@ export class TravelComponent implements OnInit {
     //matches - boolean
     .pipe(map(({ matches })=> matches ));
     // this.dbService.
-    this.dbService.fetchExpands().subscribe();
+    // if (this.dbService.travelExpands === []) {
+    //   this.dbService.fetchExpands().subscribe();
+    // }
+
     // this.isAuthenticated = this.headerCmp.isAuthenticated;
     // console.log(this.isAuthenticated);
 }
@@ -55,9 +59,11 @@ export class TravelComponent implements OnInit {
 //     this.error = null;
 //   }
 
+// WHEN OPEN MODAL
   openModal(id: number) {
     this.travelExpandService.expandId = id;
     this.travelExpandService.open('expand');
+    console.log("TC openModal");
   }
 
   // private fetchExpands(){

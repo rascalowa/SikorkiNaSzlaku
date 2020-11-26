@@ -8,7 +8,7 @@
 }
 
 h5 {
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 
 .contact {
@@ -19,12 +19,12 @@ h5 {
 .contact a {
   text-decoration: none;
   color: whitesmoke;
-  /* display: block; */
-  /* margin: 10px 20px 20px 0; */
+  display: block;
+  padding: 10px;
 }
 
 .contact a:hover {
-  text-decoration: underline overline;
+  text-decoration: underline;
 }
 
 .align-left {
@@ -81,7 +81,7 @@ button {
 
 @media screen and (min-width: 1200px) {
   .lgscreen {
-    max-width: 1000px;
+    max-width: 45vw;
     margin: 0 auto;
   }
 }
