@@ -1,13 +1,9 @@
-import { TravelExpand } from './travel-expand/travel-expand.model';
 import { ExpandTest } from './expand-test.model';
-import { HttpClient } from '@angular/common/http';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TravelExpandService } from './travel-expand';
-import { DBService } from './db.service';
-// import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-travel',
@@ -25,9 +21,6 @@ export class TravelComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private travelExpandService: TravelExpandService,
-    private http: HttpClient,
-    private dbService: DBService,
-    // private headerCmp: HeaderComponent
     ) { }
 
   ngOnInit(): void {
@@ -37,18 +30,13 @@ export class TravelComponent implements OnInit {
     .pipe(map(({ matches })=> matches ));
 }
 
-  onStoreExpands(){
-    this.dbService.storeExpands();
-  }
+  // onStoreExpands(){
+  //   this.dbService.storeExpands();
+  // }
 
-// WHEN OPEN MODAL
-  //O-1
   openModal(id: number) {
-    console.log("TC openModal1");
     this.travelExpandService.expandId = id;
     this.travelExpandService.open('expand');
-    //O-5
-    console.log("TC openModal2");
   }
 
 }

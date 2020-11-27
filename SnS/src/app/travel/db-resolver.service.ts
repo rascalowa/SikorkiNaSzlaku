@@ -12,7 +12,6 @@ export class DBResolverService implements Resolve<TravelExpand[]> {
   // WITH FIRST PAGE LOADING
   //will subscribe for me
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log("resolver runs");
     return this.dbService.fetchExpands();
   }
 }

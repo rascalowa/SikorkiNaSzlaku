@@ -1,27 +1,23 @@
 <ng-container *ngFor="let travelExpand of travelExpands; let i = index">
-<div class="expand" *ngIf='i === expandId-1'>
-  <div class="container expand-body">
-    <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
-    <div class="row">
-      <div class="col-lg-7">
-        <iframe appVideoSrc src="" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <div class="expand" *ngIf='i === expandId-1'>
+    <div class="container expand-body">
+      <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
+      <div class="row">
+        <div class="col-lg-7">
+          <iframe appVideoSrc src="" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="col-lg-5">
+          <p>{{travelExpand.textContent}}</p>
+        </div>
+        <br><br>
+        <div class='col-lg-12 photos no-gutters'>
+          <img class='col-lg-4' [src]="travelExpand.photoOneContent">
+          <img class='col-lg-4' [src]="travelExpand.photoTwoContent">
+          <img class='col-lg-4' [src]="travelExpand.photoThreeContent">
+        </div>
       </div>
-      <div class="col-lg-5">
-        <p>{{travelExpand.textContent}}</p>
-      </div>
-      <br><br>
-    <div class='col-lg-12 photos no-gutters'>
-      <img class='col-lg-4' [src]="travelExpand.photoOneContent">
-      <img class='col-lg-4' [src]="travelExpand.photoTwoContent">
-      <img class='col-lg-4' [src]="travelExpand.photoThreeContent">
     </div>
   </div>
-  </div>
-</div>
 </ng-container>
-
-
-<!-- </div>
-</div> -->
 <div class="expand-background" #expandBackground></div>
 
