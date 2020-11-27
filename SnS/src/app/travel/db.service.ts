@@ -30,16 +30,20 @@ export class DBService{
     .get<TravelExpand[]>(
       'https://ng-sns.firebaseio.com/expands.json'
       )
+      //PIPE CODE DOES NOT RUN!
       .pipe(
         tap(expands => {
+          console.log("DBS fetch -> pipe")
           this.travelListService.setTravelList(expands);
+          // this.setTravelList(expands);
         })
       );
   };
 
   setTravelList(travelExpands: TravelExpand[]) {
+    console.log("DBS setList")
     this.travelExpands = travelExpands;
-    console.log("DBS setList");
+    console.log(this.travelExpands);
   }
 
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside

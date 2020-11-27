@@ -35,52 +35,21 @@ export class TravelComponent implements OnInit {
     .observe(['(max-width: 768px)'])
     //matches - boolean
     .pipe(map(({ matches })=> matches ));
-    // this.dbService.
-    // if (this.dbService.travelExpands === []) {
-    //   this.dbService.fetchExpands().subscribe();
-    // }
-
-    // this.isAuthenticated = this.headerCmp.isAuthenticated;
-    // console.log(this.isAuthenticated);
 }
 
   onStoreExpands(){
     this.dbService.storeExpands();
   }
 
-
-//   onDeleteAllExpands(){
-//     this.dbService.deleteAllExpands().subscribe(() => {
-//       this.fetchedExpandsArray = [];
-//     })
-//   }
-
-//   onHandleError(){
-//     this.error = null;
-//   }
-
 // WHEN OPEN MODAL
+  //O-1
   openModal(id: number) {
+    console.log("TC openModal1");
     this.travelExpandService.expandId = id;
     this.travelExpandService.open('expand');
-    console.log("TC openModal");
+    //O-5
+    console.log("TC openModal2");
   }
 
-  // private fetchExpands(){
-  //   this.isFetching = true;
-  //   this.dbService.fetchExpands().subscribe(
-  //     //successful case
-  //     fetchedData => {
-  //     this.isFetching = false;
-  //     this.fetchedExpandsArray = fetchedData;
-  //     //second argument is called when the error is thrown
-  //     },
-  //     error => {
-  //     this.isFetching = false;
-  //     this.error = error.message;
-  //     console.log(error);
-  //     }
-  //   );
-  // }
 }
 

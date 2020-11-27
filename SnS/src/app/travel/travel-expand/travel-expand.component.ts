@@ -52,29 +52,23 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     this.travelExpands = this.travelListService.getTravelList();
   }
 
-  ngOnDestroy(): void {
-    //to avoid memory leaks
-    this.travelExpandService.remove(this.id);
-    console.log(this.element) // whole app-travel-expand
-    //triggers no reaction?? - it removes app-travel-expand from DOM, routing travel adds it again
-    // this.element.remove();
-    console.log("NG ON DESTROY RUNS")
-  }
-
   // open modal
+  // O - 3
   open(): void {
+    console.log("TEC open")
     this.element.style.display = 'block';
-    document.body.classList.add('expand-open');
+    document.body.classList.add('expand-open');//overflow hidden
     this.expandId = this.travelExpandService.expandId;
+    console.log(this.expandId);
+
 
     // BG - 1
     // close modal on background click
     this.element.addEventListener('click', el => {
-      console.log("TEC in onInit")
+
       if (this.expandId !== 0) {
         this.travelExpandService.close(el.target.className);
-
-        // console.log(this.element.children[0])//the same as el.target
+        console.log("TEC in onInit")
       }
 
       });
@@ -86,14 +80,18 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   close(): void {
     console.log("TEC close");
     this.element.style.display = 'none';
-    document.body.classList.remove('expand-open');
+    document.body.classList.remove('expand-open');//overflow possible
     this.expandId = 0;
   }
 
-  // CALLED ON BUTTON CLOSE - TES close CALLED TWICE??
+  // CALLED ON BUTTON CLOSE
     // X - 1
   closeModal() {
     console.log("closeMODAL")
     this.travelExpandService.close('expand');
+  }
+
+  ngOnDestroy () {
+
   }
 }

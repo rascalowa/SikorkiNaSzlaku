@@ -10,9 +10,11 @@ export class TravelExpandService {
     //adds modal to an array
     this.modals.push(modal);
     console.log("TES add");
+    console.log(this.modals);
   }
 
-  // WHEN CHANGING PAGE - NG ON DESTROY RUNS
+  // WHEN Close modal
+  // to avoid memory leaks
   remove(id: string) {
     //removes modal from that array
     this.modals = this.modals.filter(x => x.id === id);
@@ -20,26 +22,25 @@ export class TravelExpandService {
   }
 
   // WHEN OPEN MODAL
+  //O-2
   open(id: string) {
     //open modal specified by id
     const modal = this.modals.find(x => x.id === id);
+    console.log(modal);
     modal.open();
-    // console.log(modal);//TravelExpandComponent
+    //O-4
     console.log("TES open");
   }
 
   // WHEN CLOSE MODAL ON BUTTON
-  // CALLED TWICE???
     // X - 2
     // BG - 2
   close(id: string) {//id=expand
     const modal = this.modals.find(x => x.id === id);
     if (modal){
     //close modal with specified id
-    // console.log(modal);//TravelExpandComponent firstcall //undefined secondcall
     modal.close();
     this.remove(id);
-
     console.log('TES close');
     }
 
