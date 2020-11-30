@@ -20,7 +20,7 @@ export class AuthInterceptorService implements HttpInterceptor{
       //in order to modify request: (returns new object with old headers and also with new header)
         const modifiedReq = req.clone({
           params: new HttpParams().set('auth', user.token)});
-      //handle returns and observable, w can also interact with response(pipe, map, tap)
+      //handle returns and observable, we can also interact with response(pipe, map, tap)
         return next.handle(modifiedReq);
       })
     );

@@ -8,7 +8,7 @@
     &#9776;
   </button>
 <!-- MAIN NAV -->
-  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-between">
     <ul class="nav navbar-nav">
       <li routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>
         <a class="nav-link" routerLink='/' (click)="isMenuCollapsed = true">HOME</a>
@@ -23,13 +23,12 @@
         <a class="nav-link" routerLink='/contact' (click)="isMenuCollapsed = true">CONTACT</a>
       </li>
     </ul>
-    <ul class='nav navbar-nav navbar-right'>
+    <ul class='nav navbar-nav'>
       <li routerLinkActive='active'>
-        <a class="nav-link" routerLink='/auth' (click)="isMenuCollapsed = true" *ngIf="!isAuthenticated">LOGIN</a></li>
+        <a class="nav-link float-right" routerLink='/auth' (click)="isMenuCollapsed = true" *ngIf="!isAuthenticated">LOGIN</a></li>
       <li routerLinkActive='active'>
         <a class="nav-link" routerLink='/auth' (click)="isMenuCollapsed = true" (click)='onLogout()' *ngIf="isAuthenticated">LOGOUT</a></li>
     </ul>
   </div>
-
 </nav>
 
