@@ -18,6 +18,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { TravelSubsComponent } from './travel-subs/travel-subs.component';
 import { ContactService } from './contact/contact.service';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+// import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
     LayoutModule,
     HttpClientModule,
     TravelExpandModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    // NgImageSliderModule
   ],
   //when having multiple interceptors, order is important!
   providers: [

@@ -4,8 +4,11 @@ export class TravelExpand {
     public id: number,
     public textContent: string,
     public videoContent: string,
-    public photoOneContent: string,
-    public photoTwoContent: string,
-    public photoThreeContent: string
+    public photoOne: string,
+    public photoOneMin: string,
+    public photoTwo: string,
+    public photoTwoMin: string,
+    public photoThree: string,
+    public photoThreeMin: string
     ){}
 }

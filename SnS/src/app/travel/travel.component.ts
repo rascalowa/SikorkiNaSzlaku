@@ -1,9 +1,11 @@
 import { ExpandTest } from './expand-test.model';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TravelExpandService } from './travel-expand';
+//IN CASE FIREBASE STORAGE NEEDS TO BE UPDATED
+import { DBService } from './db.service';
 
 @Component({
   selector: 'app-travel',
@@ -21,6 +23,7 @@ export class TravelComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private travelExpandService: TravelExpandService,
+    private dbService: DBService
     ) { }
 
   ngOnInit(): void {
@@ -29,7 +32,7 @@ export class TravelComponent implements OnInit {
     //matches - boolean
     .pipe(map(({ matches })=> matches ));
 }
-
+  // IN CASE DATA STORAGE NEED TO BE UPDATED
   // onStoreExpands(){
   //   this.dbService.storeExpands();
   // }

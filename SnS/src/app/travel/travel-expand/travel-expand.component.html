@@ -10,10 +10,34 @@
           <p>{{travelExpand.textContent}}</p>
         </div>
         <br><br>
-        <div class='col-lg-12 photos no-gutters'>
+        <!-- <div class='col-lg-12 photos no-gutters'>
           <img class='col-lg-4' [src]="travelExpand.photoOneContent">
           <img class='col-lg-4' [src]="travelExpand.photoTwoContent">
           <img class='col-lg-4' [src]="travelExpand.photoThreeContent">
+        </div> -->
+        <!-- <ng-image-slider [images]="imageObject" #nav></ng-image-slider> -->
+        <!-- <button (click)="prevImageClick()">Prev</button>
+        <button (click)="nextImageClick()">Next</button> -->
+        <div class="col-12 slider">
+          <!-- <ng-image-slider [images]="imageObject" #nav></ng-image-slider> -->
+          <ng-image-slider #nav class='slider-lg'
+            [images]="imageObject"
+            [showArrow]="false"
+            [manageImageRatio]="true"
+            [imageSize]="{ width: '33.3%', height: 'auto' }"
+          ></ng-image-slider>
+          <ng-image-slider #nav class='slider-md'
+          [images]="imageObject"
+          [showArrow]="true"
+          [manageImageRatio]="true"
+          [imageSize]="{ width: '50%', height: 'auto' }"
+        ></ng-image-slider>
+          <ng-image-slider #nav class='slider-sm'
+            [images]="imageObject"
+            [showArrow]="true"
+            [manageImageRatio]="true"
+            [imageSize]="{ width: '95%', height: 'auto' }"
+          ></ng-image-slider>
         </div>
       </div>
     </div>

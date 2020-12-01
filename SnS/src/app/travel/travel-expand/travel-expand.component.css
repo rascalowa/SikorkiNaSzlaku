@@ -1,15 +1,6 @@
 .photos {
   padding-top: 25px;
-  /* display: flex;
-  justify-content: center;
-  overflow: hidden;
-  width: 100%; */
 }
-/*
-img {
-  max-width: 33.3vw;
-  max-height: auto;
-} */
 
 app-travel-expand {
   /* modals are hidden by default */
@@ -55,11 +46,17 @@ iframe {
   margin: 40px;
   margin-top: 80px;
   width: 90%;
-  z-index: 100;
 }
 
 .expand-body button {
   margin-top: 5px;
+}
+
+.slider {
+  margin-top: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 /* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
@@ -77,3 +74,6 @@ body.expand-open {
     height: 100vh;
   }
 }
+
+/* class="ng-image-fullscreen-view"
+class="close" */

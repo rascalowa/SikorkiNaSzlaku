@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+import { TravelComponent } from './../travel.component';
 import {
   Component,
   ElementRef,
@@ -21,13 +21,19 @@ import { TravelExpandService } from './travel-expand.service';
 export class TravelExpandComponent implements OnInit, OnDestroy {
   @Input() id: string;
   @Output() element: any;
+
   expandId: number;
   travelExpands: TravelExpand[];
+  imageObject: Array<object> = [];
+  header = document.getElementById('appHeader');
+
+
 
   constructor(
     private travelExpandService: TravelExpandService,
     private travelListService: TravelListService,
     private el: ElementRef,
+
     ) {
      this.element = el.nativeElement;
     }
@@ -56,10 +62,23 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
         this.travelExpandService.close(el.target.className);
       }
     });
+    this.header.style.display = 'none';
+    let chosenExpand: TravelExpand = this.travelExpands[this.expandId-1]
+    this.imageObject = [{
+      image: chosenExpand.photoOne,
+      thumbImage: chosenExpand.photoOneMin
+  }, {
+      image: chosenExpand.photoTwo,
+      thumbImage: chosenExpand.photoTwoMin
+  }, {
+      image: chosenExpand.photoThree,
+      thumbImage: chosenExpand.photoThreeMin
+  }];
   }
 
   close(): void {
     this.element.style.display = 'none';
+    this.header.style.display = 'block';
     document.body.classList.remove('expand-open');
     this.expandId = 0;
   }

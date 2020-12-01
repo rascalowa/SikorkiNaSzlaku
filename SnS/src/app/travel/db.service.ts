@@ -13,6 +13,7 @@ export class DBService{
 
   constructor(private http: HttpClient, private authService: AuthService, private travelListService: TravelListService) {}
 
+  // IN CASE DATA STORAGE NEED TO BE UPDATED - disable fetchExpands here + resolver
   // storeExpands(){
   //  const expands = this.travelListService.getTravelList();
   //  this.http.put('https://ng-sns.firebaseio.com/expands.json', expands)
@@ -38,7 +39,6 @@ export class DBService{
   // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
   getTravelList() {
     return this.travelExpands.slice();
-
   }
 
   getTravelCountry(index: number){
