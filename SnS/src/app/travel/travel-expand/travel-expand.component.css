@@ -19,6 +19,8 @@ iframe {
 
 .expand {
   position: fixed;
+  /* justify-self: center;
+  justify-content: center; */
   top: 50px;
   right: 0;
   bottom: 0;
@@ -41,22 +43,46 @@ iframe {
 }
 
 .expand-body {
-  padding: 20px;
+  padding: 20px 20px 20px 55px;
   background: #fff;
-  margin: 40px;
-  margin-top: 80px;
+  margin: auto;
+  margin-top: 20px;
   width: 90%;
+  /* justify-self: center;
+  justify-content: center; */
 }
 
 .expand-body button {
   margin-top: 5px;
 }
 
-.slider {
-  margin-top: 20px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: row wrap;
+.col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ngb-carousel {
+  margin-top: 25px;
+  outline: none;
+}
+
+ngb-carousel:focus {
+  /* background-color: black; */
+  border: whitesmoke;
+}
+
+ngb-carousel a {
+  /* background-color: black; */
+  border: none;
+  padding: 0;
+}
+
+ngb-carousel img {
+  /* background-color: black; */
+  /* margin: auto; */
+  /* height: auto; */
+  width: 100%;
+  border: none;
 }
 
 /* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
@@ -66,14 +92,19 @@ body.expand-open {
   overflow: hidden;
 }
 
-@media screen and (max-width: 680px) {
-  .expand-body {
-    padding: 10px;
-    background: #fff;
-    margin: auto;
-    height: 100vh;
+@media screen and (max-width: 992px) {
+  .text {
+    margin-top: 20px;
   }
 }
 
-/* class="ng-image-fullscreen-view"
-class="close" */
+@media screen and (max-width: 680px) {
+  .expand-body {
+    padding: 20px 0px 20px 30px;
+    margin: auto;
+  }
+
+  .expand-body button {
+    margin: 5px 5px 0;
+  }
+}

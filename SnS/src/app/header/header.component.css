@@ -1,3 +1,7 @@
+.fixed-top {
+  z-index: 50;
+}
+
 .navbar-brand {
   padding: 0;
   margin: 0 30px 0 0;
@@ -10,6 +14,10 @@
 
 .navbar-toggler:hover {
   color: rgb(141, 196, 187);
+}
+
+.navbar-nav.log {
+  padding-right: 30 px;
 }
 
 .navbar-nav li {

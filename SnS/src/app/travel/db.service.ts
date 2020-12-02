@@ -1,11 +1,10 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
 import { TravelListService } from './travel-list.service';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { exhaustMap, take, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 
-//Necessary when my service gets another service injected
 @Injectable({ providedIn: 'root' })
 export class DBService{
 
@@ -24,7 +23,6 @@ export class DBService{
 
   fetchExpands(){
     // take 1 (to get token) and unsubscribe - get one user if there is any when db data are fetched
-    // cannot return from inside subscribe() -> observable chain(2in1): take one from first observable, exhaustMap waits for it to complete, then replace it with second observable. After it you can subscribe in cmp
     return this.http
     .get<TravelExpand[]>(
       'https://ng-sns.firebaseio.com/expands.json'

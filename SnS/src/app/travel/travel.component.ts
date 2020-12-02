@@ -1,6 +1,5 @@
-import { ExpandTest } from './expand-test.model';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TravelExpandService } from './travel-expand';
@@ -15,7 +14,6 @@ import { DBService } from './db.service';
 export class TravelComponent implements OnInit {
   // $ to mark observables
   isScreenSmall$: Observable<boolean>;
-  fetchedExpandsArray: ExpandTest[] = [];
   isFetching = false;
   error = null;
   isAuthenticated: boolean;
@@ -42,5 +40,8 @@ export class TravelComponent implements OnInit {
     this.travelExpandService.open('expand');
   }
 
+  onScroll() {
+    window.scroll(0,0);
+  }
 }
 

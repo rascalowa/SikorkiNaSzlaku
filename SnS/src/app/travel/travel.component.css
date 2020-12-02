@@ -2,11 +2,6 @@
   background-image: url("../../assets/Travel/Travel.JPG");
 }
 
-/* .scroll {
-  scroll-snap-type: y proximity;
-  overflow: scroll;
-} */
-
 .center {
   display: flex;
   justify-content: center;
@@ -17,7 +12,6 @@
   border: 0;
   background-color: #2f353b;
   color: #ddd;
-  /* scroll-snap-align: center; */
 }
 
 .card h5 {
@@ -30,4 +24,11 @@
 
 .card-body {
   padding: 40px;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  background-color: #282e34;
+  padding: 20px 10px 5px;
 }

@@ -11,6 +11,7 @@ import {
 import { TravelListService } from '../travel-list.service';
 import { TravelExpand } from './travel-expand.model';
 import { TravelExpandService } from './travel-expand.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-travel-expand',
@@ -28,14 +29,14 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
   header = document.getElementById('appHeader');
 
 
-
   constructor(
     private travelExpandService: TravelExpandService,
     private travelListService: TravelListService,
     private el: ElementRef,
-
+    private config: NgbCarouselConfig
     ) {
-     this.element = el.nativeElement;
+      this.element = el.nativeElement;
+
     }
 
   ngOnInit(): void {
@@ -62,23 +63,23 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
         this.travelExpandService.close(el.target.className);
       }
     });
-    this.header.style.display = 'none';
-    let chosenExpand: TravelExpand = this.travelExpands[this.expandId-1]
-    this.imageObject = [{
-      image: chosenExpand.photoOne,
-      thumbImage: chosenExpand.photoOneMin
-  }, {
-      image: chosenExpand.photoTwo,
-      thumbImage: chosenExpand.photoTwoMin
-  }, {
-      image: chosenExpand.photoThree,
-      thumbImage: chosenExpand.photoThreeMin
-  }];
+  //   this.header.style.display = 'none';
+  // //   let chosenExpand: TravelExpand = this.travelExpands[this.expandId-1]
+  // //   this.imageObject = [{
+  // //     image: chosenExpand.photoOne,
+  // //     thumbImage: chosenExpand.photoOneMin
+  // // }, {
+  // //     image: chosenExpand.photoTwo,
+  // //     thumbImage: chosenExpand.photoTwoMin
+  // // }, {
+  // //     image: chosenExpand.photoThree,
+  // //     thumbImage: chosenExpand.photoThreeMin
+  // // }];
   }
 
   close(): void {
     this.element.style.display = 'none';
-    this.header.style.display = 'block';
+    // this.header.style.display = 'block';
     document.body.classList.remove('expand-open');
     this.expandId = 0;
   }
