@@ -18,7 +18,6 @@ export class TravelExpandService {
   open(id: string) {
     //open modal specified by id
     const modal = this.modals.find(x => x.id === id);
-    console.log(modal);
     modal.open();
   }
 

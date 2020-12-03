@@ -3,18 +3,16 @@ import { TravelListService } from './travel-list.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class DBService{
+export class DBService {
 
-  private travelExpands: TravelExpand[] = [];
+  constructor(private http: HttpClient, private travelListService: TravelListService) {}
 
-  constructor(private http: HttpClient, private authService: AuthService, private travelListService: TravelListService) {}
-
-  // IN CASE DATA STORAGE NEED TO BE UPDATED - disable fetchExpands here + resolver
+  // IN CASE DATA STORAGE NEED TO BE UPDATED - disable fetchExpands here + resolver from routing
   // storeExpands(){
   //  const expands = this.travelListService.getTravelList();
+  //  console.log(expands)
   //  this.http.put('https://ng-sns.firebaseio.com/expands.json', expands)
   //   .subscribe(response => {
   //     console.log(response);
@@ -33,13 +31,4 @@ export class DBService{
         })
       );
   };
-
-  // to return direct reference to this array - exact copy in case of changing we still have original one, so we really can access it from outside
-  getTravelList() {
-    return this.travelExpands.slice();
-  }
-
-  getTravelCountry(index: number){
-    return this.travelExpands[index];
-  }
 }

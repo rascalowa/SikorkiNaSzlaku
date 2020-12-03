@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { Router } from '@angular/router';
 import { BehaviorSubject, throwError } from 'rxjs'; //creates new observable wrapping our error
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
@@ -66,7 +65,7 @@ export class AuthService {
     );
   }
 
-  //after refresh the page
+  //after page refresh
   autoLogin() {
     //in order to work with saved data we need to convert it from string to JSObject
     const userData: {

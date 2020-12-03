@@ -1,4 +1,3 @@
-import { TravelExpandComponent } from './travel/travel-expand/travel-expand.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,8 +17,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { TravelSubsComponent } from './travel-subs/travel-subs.component';
 import { ContactService } from './contact/contact.service';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-// import { NgImageSliderModule } from 'ng-image-slider';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -42,7 +40,6 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
     HttpClientModule,
     TravelExpandModule,
     FontAwesomeModule,
-    // NgImageSliderModule
   ],
   //when having multiple interceptors, order is important!
   providers: [

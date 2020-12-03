@@ -3,7 +3,6 @@
 }
 
 app-travel-expand {
-  /* modals are hidden by default */
   display: none;
 }
 
@@ -19,14 +18,11 @@ iframe {
 
 .expand {
   position: fixed;
-  /* justify-self: center;
-  justify-content: center; */
   top: 50px;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 90;
-  /* enables scrolling when modal is bigger than the screen */
   overflow: auto;
 }
 
@@ -38,7 +34,6 @@ iframe {
   left: 0;
   background-color: #000;
   opacity: 0.75;
-  /* z-index must be between modal and everything else  */
   z-index: 80;
 }
 
@@ -48,8 +43,6 @@ iframe {
   margin: auto;
   margin-top: 20px;
   width: 90%;
-  /* justify-self: center;
-  justify-content: center; */
 }
 
 .expand-body button {
@@ -66,33 +59,24 @@ ngb-carousel {
   outline: none;
 }
 
-ngb-carousel:focus {
-  /* background-color: black; */
-  border: whitesmoke;
-}
-
 ngb-carousel a {
-  /* background-color: black; */
-  border: none;
   padding: 0;
 }
 
 ngb-carousel img {
-  /* background-color: black; */
-  /* margin: auto; */
-  /* height: auto; */
   width: 100%;
-  border: none;
 }
 
-/* OPEN CLASS NEEDED WHEN OPENING MODAL!! */
+/* OPEN CLASS NEEDED WHEN OPENING MODAL */
 body.expand-open {
-  /* body overflow is hidden -> when modal window is open our main page is not scrollable */
-  /* if it is not working - view encapsulation none */
   overflow: hidden;
 }
 
 @media screen and (max-width: 992px) {
+  .expand-body {
+    margin-top: 0;
+  }
+
   .text {
     margin-top: 20px;
   }
@@ -100,11 +84,19 @@ body.expand-open {
 
 @media screen and (max-width: 680px) {
   .expand-body {
-    padding: 20px 0px 20px 30px;
+    padding: 5px 0px 20px 30px;
     margin: auto;
   }
 
   .expand-body button {
-    margin: 5px 5px 0;
+    margin: 0 5px 0 0;
+  }
+
+  .video {
+    margin-top: 15px;
+  }
+
+  .photos {
+    padding: 20px 0 0 20px;
   }
 }

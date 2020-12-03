@@ -41,14 +41,6 @@ html {
   letter-spacing: 8px;
 }
 
-.ptext-auth {
-  justify-self: center;
-  top: 40%;
-  max-width: 80%;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-}
-
 .box {
   background-color: #282e34;
   color: #fff;

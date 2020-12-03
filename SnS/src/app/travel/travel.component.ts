@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TravelExpandService } from './travel-expand';
 //IN CASE FIREBASE STORAGE NEEDS TO BE UPDATED
-import { DBService } from './db.service';
+// import { DBService } from './db.service';
 
 @Component({
   selector: 'app-travel',
@@ -12,16 +12,13 @@ import { DBService } from './db.service';
   styleUrls: ['./travel.component.css', '../app.component.css']
 })
 export class TravelComponent implements OnInit {
-  // $ to mark observables
   isScreenSmall$: Observable<boolean>;
-  isFetching = false;
   error = null;
-  isAuthenticated: boolean;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private travelExpandService: TravelExpandService,
-    private dbService: DBService
+    // private dbService: DBService
     ) { }
 
   ngOnInit(): void {

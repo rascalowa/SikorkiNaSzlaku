@@ -31,7 +31,6 @@ export class AuthComponent implements OnInit {
     //extract email and password
     const email = form.value.email;
     const password = form.value.password;
-
     //both singup and login need to be subscribed with the same response/error handling
     let authObservable: Observable<AuthResponseData>;
 
@@ -43,8 +42,7 @@ export class AuthComponent implements OnInit {
     }
 
     authObservable.subscribe(
-      resData => {
-        console.log(resData);
+      () => {
         this.isLoading = false;
         this.router.navigate(['/travel']);
       },

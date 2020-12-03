@@ -1,8 +1,5 @@
 .auth1 {
   background-image: url("../../assets/Auth1.JPG");
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .form-group {
@@ -25,44 +22,10 @@
   font-size: 20px;
 }
 
+.form-text.low {
+  color: rgb(150, 149, 149);
+}
+
 button {
   margin: 15px 5px 5px;
-}
-
-@media screen and (min-width: 400px) {
-}
-
-/* DUPLICATED */
-.section {
-  text-align: center;
-  padding: 50px 80px;
-  background-color: #282e34;
-  color: #ddd;
-  align-items: center;
-}
-
-.ptext {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-  font-size: 27px;
-  letter-spacing: 8px;
-}
-
-.ptext-auth {
-  justify-self: center;
-  top: 40%;
-  max-width: 80%;
-  font-size: 1.4rem;
-  letter-spacing: 1px;
-}
-
-.box {
-  background-color: #282e34;
-  color: #fff;
-  padding: 10px;
-  opacity: 0.7;
-  border: 0;
 }

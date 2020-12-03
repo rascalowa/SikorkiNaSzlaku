@@ -1,17 +1,17 @@
 <ng-container *ngFor="let travelExpand of travelExpands; let i = index">
   <div class="expand" *ngIf='i === expandId-1'>
-    <div class="container col-lg-8 expand-body no-gutters">
+    <div class="container col-lg-8 expand-body">
       <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
       <div class="row">
-        <div class="col-lg-7">
-          <!-- width="640" height="360" -->
+        <!-- Video -->
+        <div class="col-lg-7 video">
           <iframe appVideoSrc src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
+        <!-- Text -->
         <div class="col-lg-5 text">
           <p>{{travelExpand.textContent}}</p>
         </div>
-        <br><br>
-
+        <!-- Photos -->
         <ngb-carousel class="col-12">
           <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
@@ -29,7 +29,6 @@
             </div>
           </ng-template>
         </ngb-carousel>
-
       </div>
     </div>
   </div>

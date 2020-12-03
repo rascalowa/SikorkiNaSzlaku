@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 export class TravelListService {
 private travelExpands: TravelExpand[] = [];
 
-//IN CASE SOME CHANGES ARE NEEDED - paste TravelExpandList
+//IN CASE SOME CHANGES ARE NEEDED - paste TravelExpandList here
 
   // WITH FIRST PAGE LOADING
   setTravelList(travelExpands: TravelExpand[]) {

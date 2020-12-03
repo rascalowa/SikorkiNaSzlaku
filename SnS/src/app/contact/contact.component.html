@@ -43,6 +43,10 @@
         <p class="message">Your message was send successfully!</p>
         <button class="btn btn-success" type="button" (click)="onClose()">OK</button>
       </div>
+      <div class="alert alert-danger" *ngIf="error">
+        <p>Sorry! An error occurred! Please try again or use email address to send us message.</p>
+        <button class="btn btn-danger" type="button" (click)="onCloseError()">OK</button>
+      </div>
       <button type='submit' form='contact-form' class='btn btn-dark center' [disabled]='!f.valid'>Submit</button>
       </div>
     </div>
