@@ -1,11 +1,11 @@
 import { TravelExpand } from './travel-expand/travel-expand.model';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class TravelListService {
-private travelExpands: TravelExpand[] = [];
+  private travelExpands: TravelExpand[] = [];
 
-//IN CASE SOME CHANGES ARE NEEDED - paste TravelExpandList here
+  //IN CASE SOME CHANGES ARE NEEDED - paste TravelExpandList here
 
   // WITH FIRST PAGE LOADING
   setTravelList(travelExpands: TravelExpand[]) {
@@ -17,7 +17,7 @@ private travelExpands: TravelExpand[] = [];
     return this.travelExpands.slice();
   }
 
-  getTravelCountry(index: number){
+  getTravelCountry(index: number) {
     return this.travelExpands[index];
   }
 }

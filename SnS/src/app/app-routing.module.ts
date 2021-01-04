@@ -10,6 +10,7 @@ import { TravelSubsComponent } from './travel-subs/travel-subs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  // for future : remove authentication section, lazy load travel page
   {
     path: 'travel',
     component: TravelComponent,

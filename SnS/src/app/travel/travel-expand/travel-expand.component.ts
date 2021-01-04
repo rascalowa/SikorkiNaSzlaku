@@ -62,6 +62,7 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     });
   }
 
+  //for future - here should be just one closing modal function
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('expand-open');
