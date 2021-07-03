@@ -1,37 +1,39 @@
-<ng-container *ngFor="let travelExpand of travelExpands; let i = index">
-  <div class="expand" *ngIf='i === expandId-1'>
-    <div class="container col-lg-8 expand-body">
-      <button class='btn btn-dark float-right' (click)="closeModal()">X</button>
-      <div class="row">
-        <!-- Video -->
-        <div class="col-lg-7 video">
-          <iframe appVideoSrc src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<div>
+  <!-- OVERLAY -->
+  <ng-container *ngFor="let travelExpand of travelExpands; let i = index">
+    <div class="" *ngIf='i === expandId-1'>
+      <div class="">
+        <button class="">X</button>
+        <div class="row">
+          <!-- Video -->
+          <div class="col-lg-7 video">
+            <iframe appVideoSrc src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+          <!-- Text -->
+          <div class="col-lg-5 text">
+            <p>{{travelExpand.textContent}}</p>
+          </div>
+          <!-- Photos -->
+          <ngb-carousel class="col-12">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="travelExpand.photoOne">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="travelExpand.photoTwo">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="travelExpand.photoThree">
+              </div>
+            </ng-template>
+          </ngb-carousel>
         </div>
-        <!-- Text -->
-        <div class="col-lg-5 text">
-          <p>{{travelExpand.textContent}}</p>
-        </div>
-        <!-- Photos -->
-        <ngb-carousel class="col-12">
-          <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-              <img [src]="travelExpand.photoOne">
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-              <img [src]="travelExpand.photoTwo">
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-              <img [src]="travelExpand.photoThree">
-            </div>
-          </ng-template>
-        </ngb-carousel>
       </div>
     </div>
-  </div>
-</ng-container>
-<div class="expand-background" #expandBackground></div>
-
+  </ng-container>
+</div>
+<!-- <div class="expand-background" #expandBackground></div> -->

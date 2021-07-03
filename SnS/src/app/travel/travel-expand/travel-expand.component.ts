@@ -19,6 +19,7 @@ import { TravelExpandService } from './travel-expand.service';
 })
 export class TravelExpandComponent implements OnInit, OnDestroy {
   @Input() id: string;
+  @Input() countryId: number;
   @Output() element: any;
 
   expandId: number;
@@ -37,6 +38,7 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     }
 
   ngOnInit(): void {
+    console.log("CHILD " + this.countryId);
     // does id exist?
     if (!this.id) {
       console.error('Modal must have an id.');

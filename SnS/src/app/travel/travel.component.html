@@ -10,8 +10,11 @@
 <section class="section section-dark">
   <div class="container-fluid">
     <p>
-      We had a plan to travel around the world but it turned out to be
-      exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay afloat. Below we are presenting best places we have already visited. But you need to be careful: travelling is addictive!
+      We had plan to travel around the world but it turned out to be
+      exhausting. Instead we have decided on taking shorter trips. With this idea we were able to enjoy every country we
+      have visited and that is what we highly recommend! Taking instructor jobs while traveling helped us to stay
+      afloat. Below we are presenting best places we have already visited. But you need to be careful: travelling is
+      addictive!
     </p>
     <!-- IN CASE DATA STORAGE NEED TO BE UPDATED -->
     <!-- <button class="btn btn-dark" (click)='onStoreExpands()'>Store Expands</button> -->
@@ -21,209 +24,210 @@
 <!-- DIFFERENT LAYOUT DEPENDING ON SCREEN SIZE -->
 <div [ngSwitch]="(isScreenSmall$ | async)">
 
-<!-- CARDS SECTION-->
+  <!-- CARDS SECTION-->
 
-<!-- IGUAZU -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <!-- Photo first on bigger screens -->
-    <div class="col-md-7" *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
-    </div>
-       <div class="col-md-5 align-self-center">
+  <!-- IGUAZU -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <!-- Photo first on bigger screens -->
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
+      </div>
+      <div class="col-md-5 align-self-center">
         <div class="card-body">
           <h5 class="card-title">Iguazu</h5>
           <p class="card-text">One of the biggest waterfall in the world</p>
-          <button class='btn btn-dark' (click)="openModal(1)">Read more...</button>
+          <button class='btn btn-dark' id="1" (click)="openTravelExpand($event)">Read more...</button>
         </div>
       </div>
       <!-- Photo after text on smaller screens -->
-    <div class="col-md-7" *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
-    </div>
-  </div>
-</div>
-
-<!-- PHILIPPINES -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">The Philippines</h5>
-        <p class="card-text">Beaches of Boracay, good vibes of Siargao.</p>
-        <button  class='btn btn-dark' (click)="openModal(2)">Read more...</button>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Iguazu/IguazuF.JPG">
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Philippines/PhilipF.jpg">
-    </div>
   </div>
-</div>
 
-<!-- COSTARICA -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-7" *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
-    </div>
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Costarica</h5>
-        <p class="card-text"> The best destination for wild life lovers</p>
-        <button  class='btn btn-dark' (click)="openModal(3)">Read more...</button>
+  <!-- PHILIPPINES -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">The Philippines</h5>
+          <p class="card-text">Beaches of Boracay, good vibes of Siargao.</p>
+          <button class='btn btn-dark' id="2" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Philippines/PhilipF.jpg">
       </div>
     </div>
-    <div class="col-md-7" *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
-    </div>
   </div>
-</div>
 
-<!-- PERU -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Peru</h5>
-        <p class="card-text">Huarascan National Park? Canyon Colca? Or Machu Picchu?</p>
-        <button class='btn btn-dark' (click)="openModal(4)">Read more...</button>
+  <!-- COSTARICA -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
+      </div>
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Costarica</h5>
+          <p class="card-text"> The best destination for wild life lovers</p>
+          <button class='btn btn-dark' id="3" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Costa/CostaF.jpg">
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Peru/PeruF.JPG">
-    </div>
   </div>
-</div>
 
-<!-- BOLIVIA -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-7"  *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
-    </div>
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Bolivia</h5>
-        <p class="card-text">With the biggest mirror in the world</p>
-        <button class='btn btn-dark' (click)="openModal(5)">Read more...</button>
+  <!-- PERU -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Peru</h5>
+          <p class="card-text">Huarascan National Park? Canyon Colca? Or Machu Picchu?</p>
+          <button class='btn btn-dark' id="4" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Peru/PeruF.JPG">
       </div>
     </div>
-    <div class="col-md-7"  *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
-    </div>
   </div>
-</div>
 
-
-<!-- COLOMBIA -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Colombia</h5>
-        <p class="card-text">Positive vibes, lovely nature and great food!</p>
-        <button class='btn btn-dark' (click)="openModal(6)">Read more...</button>
+  <!-- BOLIVIA -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
+      </div>
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Bolivia</h5>
+          <p class="card-text">With the biggest mirror in the world</p>
+          <button class='btn btn-dark' id="5" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Bolivia/BoliviaF.JPG">
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Columbia/ColumbiaF.JPG">
-    </div>
   </div>
-</div>
 
-<!-- ECUADOR -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-7"  *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
-    </div>
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Ecuador</h5>
-        <p class="card-text">South America in a nutshell</p>
-        <button class='btn btn-dark' (click)="openModal(7)">Read more...</button>
+
+  <!-- COLOMBIA -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Colombia</h5>
+          <p class="card-text">Positive vibes, lovely nature and great food!</p>
+          <button class='btn btn-dark' id="6" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Columbia/ColumbiaF.JPG">
       </div>
     </div>
-    <div class="col-md-7"  *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
-    </div>
   </div>
-</div>
 
-<!-- VIETNAM -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Vietnam</h5>
-        <p class="card-text">3000km, 2 months, 1 tired motorbike</p>
-        <button class='btn btn-dark' (click)="openModal(8)">Read more...</button>
+  <!-- ECUADOR -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
+      </div>
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Ecuador</h5>
+          <p class="card-text">South America in a nutshell</p>
+          <button class='btn btn-dark' id="7" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Ecuador/EcuadorF.jpg">
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="img-fluid" src="../../assets/Travel/Expand/VietNam/VietnamF.jpg">
-    </div>
   </div>
-</div>
 
-<!-- GREECE -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-7"  *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.JPG">
-    </div>
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Greece</h5>
-        <p class="card-text">If you want to kitesurf there is no better place than Greece.</p>
-        <button class='btn btn-dark' (click)="openModal(9)">Read more...</button>
+  <!-- VIETNAM -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Vietnam</h5>
+          <p class="card-text">3000km, 2 months, 1 tired motorbike</p>
+          <button class='btn btn-dark' id="8" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img class="img-fluid" src="../../assets/Travel/Expand/VietNam/VietnamF.jpg">
       </div>
     </div>
-    <div class="col-md-7"  *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.JPG">
-    </div>
   </div>
-</div>
 
-<!-- ALPES -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Alpes</h5>
-        <p class="card-text">Our best snowboard destination.</p>
-        <button class='btn btn-dark' (click)="openModal(10)">Read more...</button>
+  <!-- GREECE -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.JPG">
+      </div>
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Greece</h5>
+          <p class="card-text">If you want to kitesurf there is no better place than Greece.</p>
+          <button class='btn btn-dark' id="9" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Greece/GreeceF.JPG">
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Alpes/AlpesF.jpg">
-    </div>
   </div>
-</div>
 
-<!-- NICARAGUA -->
-<div class="card text-center">
-  <div class="row no-gutters">
-    <div class="col-md-7"  *ngSwitchCase="false">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Nica/NicaF.jpg">
-    </div>
-    <div class="col-md-5 align-self-center">
-      <div class="card-body">
-        <h5 class="card-title">Nicaragua</h5>
-        <p class="card-text">Are you looking for great surfing destination? Look no more!</p>
-        <button class='btn btn-dark' (click)="openModal(11)">Read more...</button>
+  <!-- ALPES -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Alpes</h5>
+          <p class="card-text">Our best snowboard destination.</p>
+          <button class='btn btn-dark' id="10" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Alpes/AlpesF.jpg">
       </div>
     </div>
-    <div class="col-md-7"  *ngSwitchCase="true">
-      <img class="img-fluid" src="../../assets/Travel/Expand/Nica/NicaF.jpg">
+  </div>
+
+  <!-- NICARAGUA -->
+  <div class="card text-center">
+    <div class="row no-gutters">
+      <div class="col-md-7" *ngSwitchCase="false">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Nica/NicaF.jpg">
+      </div>
+      <div class="col-md-5 align-self-center">
+        <div class="card-body">
+          <h5 class="card-title">Nicaragua</h5>
+          <p class="card-text">Are you looking for great surfing destination? Look no more!</p>
+          <button class='btn btn-dark' id="11" (click)="openTravelExpand($event)">Read more...</button>
+        </div>
+      </div>
+      <div class="col-md-7" *ngSwitchCase="true">
+        <img class="img-fluid" src="../../assets/Travel/Expand/Nica/NicaF.jpg">
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Button + Expand -->
 <div class="col-12 top">
-<button class="btn btn-dark" type='button' (click)="onScroll()">GO TO THE TOP</button>
+  <button class="btn btn-dark" type='button' (click)="onScrollToTop()">GO TO THE TOP</button>
 </div>
-<app-travel-expand id='expand'>
+
+<app-travel-expand *ngIf='countryId' [countryId]='countryId' id="expand">
 </app-travel-expand>

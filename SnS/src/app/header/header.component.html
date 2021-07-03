@@ -7,28 +7,18 @@
     <!-- Unicode Character for hamburger icon -->
     &#9776;
   </button>
-<!-- MAIN NAV -->
+  <!-- MAIN NAV -->
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-between">
     <ul class="nav navbar-nav">
       <li routerLinkActive='active' [routerLinkActiveOptions]='{exact: true}'>
         <a class="nav-link" routerLink='/' (click)="isMenuCollapsed = true">HOME</a>
       </li>
-      <li routerLinkActive='active' *ngIf="isAuthenticated">
-        <a class="nav-link" routerLink='/travel' (click)="isMenuCollapsed = true" >TRAVEL</a>
-      </li>
-      <li routerLinkActive='active' *ngIf="!isAuthenticated">
-        <a class="nav-link" routerLink='/travelsubs' (click)="isMenuCollapsed = true" >TRAVEL</a>
+      <li routerLinkActive='active'>
+        <a class="nav-link" routerLink='/travel' (click)="isMenuCollapsed = true">TRAVEL</a>
       </li>
       <li routerLinkActive='active'>
         <a class="nav-link" routerLink='/contact' (click)="isMenuCollapsed = true">CONTACT</a>
       </li>
     </ul>
-    <ul class='nav navbar-nav log'>
-      <li routerLinkActive='active'>
-        <a class="nav-link float-lg-right" routerLink='/auth' (click)="isMenuCollapsed = true" *ngIf="!isAuthenticated">LOGIN</a></li>
-      <li routerLinkActive='active'>
-        <a class="nav-link" routerLink='/auth' (click)="isMenuCollapsed = true" (click)='onLogout()' *ngIf="isAuthenticated">LOGOUT</a></li>
-    </ul>
   </div>
 </nav>
-
