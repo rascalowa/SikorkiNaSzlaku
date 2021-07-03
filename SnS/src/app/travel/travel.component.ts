@@ -17,6 +17,8 @@ export class TravelComponent implements OnInit {
   countryId: number = null;
   isScreenSmall$: Observable<boolean>;
   error = null;
+  activeCountryCode: string;
+  showCountryModal = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -36,6 +38,23 @@ export class TravelComponent implements OnInit {
   //   this.dbService.storeExpands();
   // }
 
+
+  openCountryModal(event) {
+    this.activeCountryCode = event.target.id;
+    //overlay here
+    this.showCountryModal = true;
+  }
+
+  closeCountryModal() {
+    this.showCountryModal = false;
+    //overlay here
+  }
+
+  showModal() {
+    if (this.showCountryModal) {
+      return 'block';
+    }
+  }
 
 
   openTravelExpand(event) {//what type event is?!

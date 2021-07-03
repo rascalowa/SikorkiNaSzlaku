@@ -34,16 +34,15 @@ export class TravelExpandComponent implements OnInit, OnDestroy {
     private el: ElementRef
     ) {
       this.element = el.nativeElement;
-
     }
 
   ngOnInit(): void {
     console.log("CHILD " + this.countryId);
-    // does id exist?
-    if (!this.id) {
-      console.error('Modal must have an id.');
-      return;
-    }
+    // // does id exist?
+    // if (!this.id) {
+    //   console.error('Modal must have an id.');
+    //   return;
+    // }
     // move element to bottom of page (just before </body>) so it can be displayed above everything else
     document.body.appendChild(this.element);
     // add self (this modal instance) to the modal service so it's accessible from controllers
